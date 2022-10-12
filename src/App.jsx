@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import './styles/normalize.css'
+// import './styles/normalize.css'
 import './App.css'
-import LoginButton from './components/LoginButton'
+import LoginButton from './components/buttons/LoginButton'
 import CustomNav from './components/CustomNav'
+import LogoutButton from './components/buttons/LogoutButton'
+import Profile from './components/Profile'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,6 +13,12 @@ function App() {
   return (
     <div className="App">
       <CustomNav/>
+      <div className='card'>
+      <LoginButton/>
+      <LogoutButton/>
+
+      </div>
+      <Profile/>
       {/* <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src="/vite.svg" className="logo" alt="Vite logo" />
