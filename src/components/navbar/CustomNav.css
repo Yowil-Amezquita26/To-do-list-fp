@@ -1,0 +1,27 @@
+/* Css created */
+.customNavBar{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 5rem
+  }
+  .customNavBar .Title{
+    margin-right: 12rem;
+  }
+  .customNavBar .navButtons{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 1rem ;
+  }
+  .ButtonsMain{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .MainButtons{
+    display: flex;
+    margin: 1rem;
+  }
+
+  

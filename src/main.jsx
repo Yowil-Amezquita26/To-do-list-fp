@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import "./styles/normalize.css"
 import "./index.css";
+import "./styles/normalize.css"
+import './components/navbar/CustomNav'
 import { Auth0Provider } from "@auth0/auth0-react";
 
 const domain = import.meta.env.VITE_REACT_APP_AUTH0_DOMAIN;
 const clientId = import.meta.env.VITE_REACT_APP_AUTH0_CLIENT_ID;
-console.log(import.meta.env.VITE_REACT_APP_AUTH0_DOMAIN);
-console.log(clientId)
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Auth0Provider
     domain={domain}

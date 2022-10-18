@@ -1,24 +1,29 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 // import './styles/normalize.css'
 import './App.css'
-import LoginButton from './components/buttons/LoginButton'
-import CustomNav from './components/CustomNav'
-import LogoutButton from './components/buttons/LogoutButton'
+import CustomNav from './components/navbar/CustomNav'
+import HomePage from './pages/HomePage'
+import UserPage from './pages/UserPage'
 import Profile from './components/Profile'
 
 function App() {
   const [count, setCount] = useState(0)
-
   return (
     <div className="App">
-      <CustomNav/>
+      <Router>
+      <Routes>
+        <Route exact path="/" element={<HomePage/>}>
+        </Route>
+        <Route path="/profile" element={<Profile/>}>
+        </Route>
+      </Routes>
+
+      </Router>
       <div className='card'>
-      <LoginButton/>
-      <LogoutButton/>
 
       </div>
-      <Profile/>
       {/* <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src="/vite.svg" className="logo" alt="Vite logo" />
