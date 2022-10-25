@@ -6,7 +6,9 @@ import './App.css'
 import CustomNav from './components/navbar/CustomNav'
 import HomePage from './pages/HomePage'
 import UserPage from './pages/UserPage'
+import Task from './pages/taskPage/Task'
 import Profile from './components/Profile'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,7 +18,9 @@ function App() {
       <Routes>
         <Route exact path="/" element={<HomePage/>}>
         </Route>
-        <Route path="/profile" element={<Profile/>}>
+        <Route path="/user-page" element={<UserPage/>}>
+        </Route>
+        <Route path="/task" element={<Task/>}>
         </Route>
       </Routes>
 

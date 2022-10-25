@@ -1,0 +1,10 @@
+.Status{
+    display: flex;
+    justify-content: center;
+}
+
+.Tickets{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
