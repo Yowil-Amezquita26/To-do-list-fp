@@ -14,8 +14,7 @@ const HomePage = () => {
         HomePage
       </div>
       <div className='card'>
-        <LoginButton/>
-        <LogoutButton/>
+        
 
       </div>
     </>

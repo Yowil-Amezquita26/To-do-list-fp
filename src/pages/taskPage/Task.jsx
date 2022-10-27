@@ -18,8 +18,8 @@ export default function Task() {
       </h2>
     );
   }
-  console.log(user);
-
+  
+ 
   return (
     <>
       <CustomNav />
