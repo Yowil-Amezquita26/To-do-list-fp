@@ -29,7 +29,7 @@ export default function Task() {
           <h2>
             <b>To do</b>
           </h2>
-          {user.userDB.ticket[0].not_done.map((tickets) => (
+          {user.userDB.ticket.not_done.map((tickets) => (
             <Ticket
               key={tickets._id}
               tickets={tickets}
@@ -41,7 +41,7 @@ export default function Task() {
           <h2>
             <b>Doing</b>
           </h2>
-          {user.userDB.ticket[0].doing.map((tickets) => (
+          {user.userDB.ticket.doing.map((tickets) => (
             <Ticket
               key={tickets._id}
               tickets={tickets}
@@ -53,7 +53,7 @@ export default function Task() {
           <h2>
             <b>Done</b>
           </h2>
-          {user.userDB.ticket[0].done.map((tickets) => (
+          {user.userDB.ticket.done.map((tickets) => (
             <Ticket
               key={tickets._id}
               tickets={tickets}
