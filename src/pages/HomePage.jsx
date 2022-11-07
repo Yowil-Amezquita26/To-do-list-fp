@@ -14,8 +14,7 @@ const HomePage = () => {
   
       const { verify, isPending,error} = verifyUser(url);
       console.log(verify);
-      const {register, status} = registerUser(user,verify)
-      console.log(register)
+      registerUser(user,verify)
     }
   return (
     <>
