@@ -3,11 +3,14 @@ import CustomNav from "../../components/navbar/CustomNav";
 import Ticket from "../../components/task/Ticket";
 import "./TaskStyles.css";
 import { getUser } from "../../hooks/getUser";
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 export default function Task() {
+  const storage = window.localStorage;
+  console.log(storage.getItem("UserEmail"));
   let url =
-    "https://to-do-list-be.onrender.com/api/user/6357ef2c4336700984e59d1d";
+    `https://to-do-list-be.onrender.com/api/user/${storage.getItem("UserEmail")}`;
 
   const { user, isPending, error } = getUser(url);
 

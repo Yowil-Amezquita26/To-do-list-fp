@@ -17,7 +17,7 @@ export const getUser = (url) => {
           };
         }
         let json = await res.json();
-        // console.log(json.userDB.ticket);
+        console.log(json.userDB.email);
         setUser(json);
         setisPending(false);
         setError({ err: false });
