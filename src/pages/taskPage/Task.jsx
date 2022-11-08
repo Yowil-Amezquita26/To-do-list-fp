@@ -5,13 +5,10 @@ import "./TaskStyles.css";
 import { getUser } from "../../hooks/getUser";
 import { useAuth0 } from "@auth0/auth0-react";
 import AddTickets from "../../components/task/AddTickets";
-import { useForm } from "../../hooks/useForm";
+
 
 export default function Task() {
   const [openModal, setOpenModal] = useState(false);
-  const { form,updateForm, updateFormCharacter } = useForm();
-  const formData = new FormData();
-  formData.append("data", JSON.stringify(form));
   const storage = window.localStorage;
   
   let url = `https://to-do-list-be.onrender.com/api/user/${storage.getItem(
@@ -39,7 +36,7 @@ export default function Task() {
       >
         Add Ticket
       </button>
-      {openModal && <AddTickets closeModal={setOpenModal} form={form} updateForm={updateForm} updateFormCharacter={updateFormCharacter} />}
+      {openModal && <AddTickets closeModal={setOpenModal}/>}
       <div className="Status">
         <div className="Tickets">
           <h2>

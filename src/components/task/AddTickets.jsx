@@ -1,10 +1,11 @@
-import React from "react";
-import "../../hooks/useForm"
-import useForm from "../../hooks/useForm";
+import React, { useState } from "react";
 
-
-function AddTickets({ closeModal, form, updateForm, updateFormCharacter}) {
-  
+const AddTickets = ({ closeModal }) => {
+  const [form, setForm] = useState({
+    title: "",
+    desciption: "",
+    status: "",
+  });
   return (
     <div className="modalBackground">
       <div className="modalContainer">
@@ -14,15 +15,18 @@ function AddTickets({ closeModal, form, updateForm, updateFormCharacter}) {
         <h2>Add a Task</h2>
         <form action="" className="addTicketForm">
           <label htmlFor="title"> Title</label>
-          <input type="text" id="title" onChange={updateFormCharacter} value={form.title}/>
+          <input type="text" id="title" name="title"/>
           <label htmlFor="desciption"> Description</label>
-          <input type="text" id="desciption" onChange={updateForm} value={form.desciption} />
+          <input type="text" id="desciption" name="desciption" />
           <label htmlFor="status"> Status</label>
-          <input type="checkbox" id="status" onChange={updateForm} value={form.status} />
+          <input type="checkbox" id="status" name="status" />
+          <div>
+            <button type="submit">Save</button>
+          </div>
         </form>
       </div>
     </div>
   );
-}
+};
 
 export default AddTickets;
