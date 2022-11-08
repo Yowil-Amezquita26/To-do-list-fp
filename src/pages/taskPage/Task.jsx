@@ -1,19 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import CustomNav from "../../components/navbar/CustomNav";
 import Ticket from "../../components/task/Ticket";
 import "./TaskStyles.css";
 import { getUser } from "../../hooks/getUser";
 import { useAuth0 } from "@auth0/auth0-react";
-
+import AddTickets from "../../components/task/AddTickets";
+import { useForm } from "../../hooks/useForm";
 
 export default function Task() {
+  const [openModal, setOpenModal] = useState(false);
+  const { form,updateForm } = useForm();
+  const formData = new FormData();
+  formData.append("data", JSON.stringify(form));
   const storage = window.localStorage;
-  console.log(storage.getItem("UserEmail"));
-  let url =
-    `https://to-do-list-be.onrender.com/api/user/${storage.getItem("UserEmail")}`;
+  
+  let url = `https://to-do-list-be.onrender.com/api/user/${storage.getItem(
+    "UserEmail"
+  )}`;
 
   const { user, isPending, error } = getUser(url);
-
   if (isPending) {
     return (
       <h2>
@@ -21,17 +26,26 @@ export default function Task() {
       </h2>
     );
   }
-  
- 
+
   return (
     <>
       <CustomNav />
       <h2>Tasks</h2>
+      <button
+        className="openModalBtn"
+        onClick={() => {
+          setOpenModal(true);
+        }}
+      >
+        Add Ticket
+      </button>
+      {openModal && <AddTickets closeModal={setOpenModal} form={form} updateForm={updateForm} />}
       <div className="Status">
         <div className="Tickets">
           <h2>
             <b>To do</b>
           </h2>
+          {/* <button onClick={}></button> */}
           {user.userDB.ticket.not_done.map((tickets) => (
             <Ticket
               key={tickets._id}

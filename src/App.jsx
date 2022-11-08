@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage'
 import UserPage from './pages/UserPage'
 import Task from './pages/taskPage/Task'
 import Profile from './components/Profile'
+import "./components/task/AddTicket.css"
 
 
 function App() {
