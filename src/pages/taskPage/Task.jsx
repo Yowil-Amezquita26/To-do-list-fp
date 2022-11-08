@@ -9,7 +9,7 @@ import { useForm } from "../../hooks/useForm";
 
 export default function Task() {
   const [openModal, setOpenModal] = useState(false);
-  const { form,updateForm } = useForm();
+  const { form,updateForm, updateFormCharacter } = useForm();
   const formData = new FormData();
   formData.append("data", JSON.stringify(form));
   const storage = window.localStorage;
@@ -39,7 +39,7 @@ export default function Task() {
       >
         Add Ticket
       </button>
-      {openModal && <AddTickets closeModal={setOpenModal} form={form} updateForm={updateForm} />}
+      {openModal && <AddTickets closeModal={setOpenModal} form={form} updateForm={updateForm} updateFormCharacter={updateFormCharacter} />}
       <div className="Status">
         <div className="Tickets">
           <h2>

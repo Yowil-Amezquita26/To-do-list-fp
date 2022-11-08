@@ -3,7 +3,7 @@ import "../../hooks/useForm"
 import useForm from "../../hooks/useForm";
 
 
-function AddTickets({ closeModal, form, updateForm}) {
+function AddTickets({ closeModal, form, updateForm, updateFormCharacter}) {
   
   return (
     <div className="modalBackground">
@@ -14,11 +14,11 @@ function AddTickets({ closeModal, form, updateForm}) {
         <h2>Add a Task</h2>
         <form action="" className="addTicketForm">
           <label htmlFor="title"> Title</label>
-          <input type="text" id="title" onChange={updateForm}/>
+          <input type="text" id="title" onChange={updateFormCharacter} value={form.title}/>
           <label htmlFor="desciption"> Description</label>
-          <input type="text" id="desciption" />
+          <input type="text" id="desciption" onChange={updateForm} value={form.desciption} />
           <label htmlFor="status"> Status</label>
-          <input type="checkbox" id="status" />
+          <input type="checkbox" id="status" onChange={updateForm} value={form.status} />
         </form>
       </div>
     </div>
