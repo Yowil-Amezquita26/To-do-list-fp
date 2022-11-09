@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { putTicket } from "../../hooks/putTicket";
 
 const AddTickets = ({ closeModal }) => {
   const [form, setForm] = useState({
     title: "",
     desciption: "",
-    status: "Not Done",
+    status: "not done",
   });
   const handleInputChange = (event) => {
     console.log(event, "funciona");
@@ -13,6 +14,12 @@ const AddTickets = ({ closeModal }) => {
       [event.target.name]: event.target.value,
     });
   };
+
+  const handleSubmit = (event)=> {
+    console.log('A name was submitted: ' + form);
+    putTicket(form)
+  }
+
   return (
     <div className="modalBackground">
       <div className="modalContainer">
@@ -20,7 +27,7 @@ const AddTickets = ({ closeModal }) => {
           <button onClick={() => closeModal(false)}> X </button>
         </div>
         <h2>Add a Task</h2>
-        <form action="" className="addTicketForm">
+        <form action="" onSubmit={handleSubmit} className="addTicketForm">
           <label htmlFor="title"> Title</label>
           <input
             type="text"
@@ -36,7 +43,7 @@ const AddTickets = ({ closeModal }) => {
             onChange={handleInputChange}
           />
           <div>
-            <button type="submit">Save</button>
+            <button type="submit" >Save</button>
           </div>
         </form>
       </div>

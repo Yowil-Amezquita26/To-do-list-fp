@@ -5,6 +5,7 @@ export const getUser = (url) => {
   const [isPending, setisPending] = useState(true);
   const [error, setError] = useState(null);
   const [ticket, setTicket] = useState(null);
+  const storage = window.localStorage;
   useEffect(() => {
     const getUser = async (url) => {
       try {
@@ -18,6 +19,7 @@ export const getUser = (url) => {
         }
         let json = await res.json();
         console.log(json.userDB.email);
+        storage.setItem("UserId",json.userDB._id)
         setUser(json);
         setisPending(false);
         setError({ err: false });

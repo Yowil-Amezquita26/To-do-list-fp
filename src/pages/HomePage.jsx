@@ -7,15 +7,7 @@ import { verifyUser } from '../hooks/verifyUser';
 
 const HomePage = () => {
     const { user, isAuthenticated } = useAuth0();
-    console.log(user)
-    if(isAuthenticated){
-      let url =
-      `https://to-do-list-be.onrender.com/api/user/verified/${user.email}`;
-  
-      const { verify, isPending,error} = verifyUser(url);
-      console.log(verify);
-      registerUser(user,verify)
-    }
+    registerUser()
   return (
     <>
       <CustomNav/>
