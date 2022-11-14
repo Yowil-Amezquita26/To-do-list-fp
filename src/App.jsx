@@ -9,6 +9,7 @@ import UserPage from './pages/UserPage'
 import Task from './pages/taskPage/Task'
 import Profile from './components/Profile'
 import "./components/task/AddTicket.css"
+import Ticket from './components/task/Ticket'
 
 
 function App() {
@@ -22,6 +23,8 @@ function App() {
         <Route path="/user-page" element={<UserPage/>}>
         </Route>
         <Route path="/task" element={<Task/>}>
+        </Route>
+        <Route path="/details/:id" element={<Ticket/>}>
         </Route>
       </Routes>
 

@@ -5,6 +5,7 @@ import "./TaskStyles.css";
 import { getUser } from "../../hooks/getUser";
 import { useAuth0 } from "@auth0/auth0-react";
 import AddTickets from "../../components/task/AddTickets";
+import { Link } from "react-router-dom";
 
 
 export default function Task() {
@@ -23,7 +24,7 @@ export default function Task() {
       </h2>
     );
   }
-
+  console.log(user.userDB);
   return (
     <>
       <CustomNav />
@@ -44,11 +45,13 @@ export default function Task() {
           </h2>
           {/* <button onClick={}></button> */}
           {user.userDB.ticket.not_done.map((tickets) => (
-            <Ticket
-              key={tickets._id}
-              tickets={tickets}
-              status={tickets.status}
-            />
+            <div key={tickets._id} className="CardTicket">
+              <h3>Title: {tickets.title}</h3>
+              <h4>Description: {tickets.desciption}</h4>
+              <h4>Status: {tickets.status}</h4>
+              <button onClick={console.log(tickets._id)}></button>
+              <Link to={`/details/${tickets._id}`}> Edit</Link>
+            </div>
           ))}
         </div>
         <div className="Tickets">
