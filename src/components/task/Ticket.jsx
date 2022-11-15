@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { getTicket } from "../../hooks/getTicket";
+import { getUser } from "../../hooks/getUser";
 import EditTickets from "./EditTickets";
 import "./TicketStyle.css";
 
@@ -8,8 +9,9 @@ const Ticket = (tickets) => {
   const storage = window.localStorage; 
   const [openEditModal, setOpenEditModal] = useState(false);
   const {id} = useParams()
-  let url = `https://to-do-list-be.onrender.com/api/user/get/${storage.getItem("UserId")}/${id}`
-  const { ticket, isPending, error } = getTicket(url);
+  let url = `https://to-do-list-be.onrender.com/api/user/${storage.getItem("UserEmail")}/`
+  
+  const { user, isPending, error } = getUser(url);
   if (isPending) {
     return (
       <h2>
@@ -17,10 +19,12 @@ const Ticket = (tickets) => {
       </h2>
     );
   }
-
+  console.log(user)
+  let ticket = user.userDB.tickets.filter(ticket => ticket._id == id)
+  console.log(ticket);
   return (
     <>
-      {openEditModal && <EditTickets closeEditModal={setOpenEditModal} data={ticket.ticket[0]}/>}
+      {openEditModal && <EditTickets closeEditModal={setOpenEditModal} data={ticket[0]}/>}
       <button
         className="openModalBtn"
         onClick={() => {
@@ -30,9 +34,9 @@ const Ticket = (tickets) => {
         Edit Ticket
       </button>
       <div className="CardTicket" >
-        <h3>Title: {ticket.ticket[0].title}</h3>
-        <h4>Description: {ticket.ticket[0].desciption}</h4>
-        <h4>Status:{ticket.ticket[0].status} </h4>
+        <h3>Title: {ticket[0].title}</h3>
+        <h4>Description: {ticket[0].desciption}</h4>
+        <h4>Status:{ticket[0].status} </h4>
         
       </div>
     </>

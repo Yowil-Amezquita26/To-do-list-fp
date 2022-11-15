@@ -1,12 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 export const editTicket = (data,ticketId) => {
   const storage = window.localStorage;
-  console.log(JSON.stringify(data));
-  console.log(ticketId);
-  console.log(storage.getItem("UserId"));
+  
   fetch(
-    `https://to-do-list-be.onrender.com/api/user/edit//${ticketId}`,
+    `https://to-do-list-be.onrender.com/api/user/edit/${storage.getItem("UserId")}/${ticketId}`,
     {
       method: "PUT",
       headers: {
@@ -19,8 +17,11 @@ export const editTicket = (data,ticketId) => {
     .then((response) => response.json())
     .then((data) => {
       console.log(data, "hello");
+      
     })
     .catch((err) => {
       console.log(err.message);
     });
+
+    
 };

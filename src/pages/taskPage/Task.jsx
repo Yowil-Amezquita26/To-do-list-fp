@@ -11,6 +11,9 @@ import { Link } from "react-router-dom";
 export default function Task() {
   const [openModal, setOpenModal] = useState(false);
   const storage = window.localStorage;
+  let taskNotDone = {}
+  let taskDoing = {}
+  let taskDone = {}
   
   let url = `https://to-do-list-be.onrender.com/api/user/${storage.getItem(
     "UserEmail"
@@ -25,6 +28,13 @@ export default function Task() {
     );
   }
   console.log(user.userDB);
+  taskNotDone = user.userDB.tickets.filter(ticket => ticket.status == "Not Done")
+  taskDoing = user.userDB.tickets.filter(ticket => ticket.status == "Doing")
+  taskDone = user.userDB.tickets.filter(ticket => ticket.status == "Done")
+  console.log(taskNotDone);
+  console.log(taskDoing);
+  console.log(taskDone);
+  
   return (
     <>
       <CustomNav />
@@ -44,13 +54,12 @@ export default function Task() {
             <b>To do</b>
           </h2>
           {/* <button onClick={}></button> */}
-          {user.userDB.ticket.not_done.map((tickets) => (
+          {taskNotDone.map((tickets) => (
             <div key={tickets._id} className="CardTicket">
               <h3>Title: {tickets.title}</h3>
               <h4>Description: {tickets.desciption}</h4>
               <h4>Status: {tickets.status}</h4>
-              <button onClick={console.log(tickets._id)}></button>
-              <Link to={`/details/${tickets._id}`}> Edit</Link>
+              <button ><Link to={`/details/${tickets._id}`}> Edit</Link></button>
             </div>
           ))}
         </div>
@@ -58,24 +67,26 @@ export default function Task() {
           <h2>
             <b>Doing</b>
           </h2>
-          {user.userDB.ticket.doing.map((tickets) => (
-            <Ticket
-              key={tickets._id}
-              tickets={tickets}
-              status={tickets.status}
-            />
+          {taskDoing.map((tickets) => (
+            <div key={tickets._id} className="CardTicket">
+              <h3>Title: {tickets.title}</h3>
+              <h4>Description: {tickets.desciption}</h4>
+              <h4>Status: {tickets.status}</h4>
+              <button ><Link to={`/details/${tickets._id}`}> Edit</Link></button>
+            </div>
           ))}
         </div>
         <div className="Tickets">
           <h2>
             <b>Done</b>
           </h2>
-          {user.userDB.ticket.done.map((tickets) => (
-            <Ticket
-              key={tickets._id}
-              tickets={tickets}
-              status={tickets.status}
-            />
+          {taskDone.map((tickets) => (
+            <div key={tickets._id} className="CardTicket">
+              <h3>Title: {tickets.title}</h3>
+              <h4>Description: {tickets.desciption}</h4>
+              <h4>Status: {tickets.status}</h4>
+              <button ><Link to={`/details/${tickets._id}`}> Edit</Link></button>
+            </div>
           ))}
         </div>
       </div>

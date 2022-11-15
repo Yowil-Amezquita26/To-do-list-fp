@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 export const getUser = (url) => {
   const [user, setUser] = useState(null);
   const [isPending, setisPending] = useState(true);
   const [error, setError] = useState(null);
-  const [ticket, setTicket] = useState(null);
   const storage = window.localStorage;
   useEffect(() => {
     const getUser = async (url) => {

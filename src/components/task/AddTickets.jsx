@@ -5,10 +5,10 @@ const AddTickets = ({ closeModal }) => {
   const [form, setForm] = useState({
     title: "",
     desciption: "",
-    status: "not done",
+    status: "Not Done",
   });
   const handleInputChange = (event) => {
-    console.log(event, "funciona");
+
     setForm({
       ...form,
       [event.target.name]: event.target.value,
@@ -16,7 +16,8 @@ const AddTickets = ({ closeModal }) => {
   };
 
   const handleSubmit = (event)=> {
-    console.log('A name was submitted: ' + form);
+
+    event.preventDefault()
     putTicket(form)
   }
 

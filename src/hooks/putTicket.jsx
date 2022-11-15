@@ -2,8 +2,6 @@ import React from 'react'
 
 export const putTicket = (data) => {
     const storage = window.localStorage;
-  console.log(JSON.stringify(data));
-  console.log(storage.getItem("UserId"));
   fetch(`https://to-do-list-be.onrender.com/api/user/${storage.getItem("UserId")}/new-ticket`, {
           method: 'PUT',
           headers: {
@@ -14,7 +12,7 @@ export const putTicket = (data) => {
         })
           .then((response) => response.json())
           .then((data) => {
-            console.log(data,"hello");
+            console.log(data,"hello added");
             // Handle data
           })
           .catch((err) => {

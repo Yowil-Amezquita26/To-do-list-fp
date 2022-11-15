@@ -1,15 +1,16 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { editTicket } from "../../hooks/editTicket";
 import { putTicket } from "../../hooks/putTicket";
 
 const EditTickets = ({ closeEditModal, data }) => {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     title: data.title,
     desciption: data.desciption,
     status: data.status,
   });
   const handleInputChange = (event) => {
-    console.log(event, "funciona");
     setForm({
       ...form,
       [event.target.name]: event.target.value,
@@ -17,11 +18,9 @@ const EditTickets = ({ closeEditModal, data }) => {
   };
 
   const handleSubmit = (event) => {
-    console.log("A name was submitted: " + form);
     event.preventDefault()
-    // putTicket(form)
-    editTicket(form,data._id)
-    console.log(form, data._id)
+    editTicket( form,data._id)
+    navigate("/task")
   };
 
   return (
@@ -49,10 +48,10 @@ const EditTickets = ({ closeEditModal, data }) => {
             value={form.desciption}
           />
           <label htmlFor="status"> Status </label>
-          <select name="status" id="status" onChange={handleInputChange}>
-            <option value="not done">Not Done</option>
-            <option value="doing">Doing</option>
-            <option value="done">Done</option>
+          <select name="status" id="status" onChange={handleInputChange} value={form.status}>
+            <option value="Not Done">Not Done</option>
+            <option value="Doing">Doing</option>
+            <option value="Done">Done</option>
           </select>
           <div>
             <button type="submit">Save</button>

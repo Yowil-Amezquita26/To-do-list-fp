@@ -5,8 +5,7 @@ import { verifyUser } from "../hooks/verifyUser";
 const Profile = () => {
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [userMetadata, setUserMetadata] = useState(null);
-  console.log(user.email,"hellow my friend");
-  console.log(user.sub)
+
 
 
   
