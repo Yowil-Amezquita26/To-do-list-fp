@@ -6,7 +6,7 @@ export const getUser = (url) => {
   const [error, setError] = useState(null);
   const storage = window.localStorage;
   useEffect(() => {
-    const getUser = async (url) => {
+    const User = async (url) => {
       try {
         let res = await fetch(url);
         if (!res.ok) {
@@ -28,7 +28,7 @@ export const getUser = (url) => {
       }
     };
 
-    getUser(url);
+    User(url);
   }, [url]);
 
   return { user, isPending, error };

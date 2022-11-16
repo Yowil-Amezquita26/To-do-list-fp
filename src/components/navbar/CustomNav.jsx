@@ -13,7 +13,7 @@ const CustomNav = () => {
     <nav className="customNavBar">
       <h2 className="customNavBar Title">To-do-list</h2>
       <ul className="UlItems">
-        <Link to={"/"} className={"MainButtons"}>
+        <Link to={"/home"} className={"MainButtons"}>
           <button>Home</button>
         </Link>
         {/* <Link to={"/task"} className={"MainButtons"}>

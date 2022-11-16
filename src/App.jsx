@@ -10,15 +10,19 @@ import Task from './pages/taskPage/Task'
 import Profile from './components/Profile'
 import "./components/task/AddTicket.css"
 import Ticket from './components/task/Ticket'
+import LandingPage from './pages/LandingPage'
 
 
 function App() {
   const [count, setCount] = useState(0)
+
   return (
     <div className="App">
       <Router>
       <Routes>
-        <Route exact path="/" element={<HomePage/>}>
+        <Route exact path="/" element={<LandingPage/>}>
+        </Route>
+        <Route path="/home" element={<HomePage/>}>
         </Route>
         <Route path="/user-page" element={<UserPage/>}>
         </Route>
