@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { putTicket } from "../../hooks/putTicket";
+import { putTicket } from "../../services/putTicket";
+
 
 const AddTickets = ({ closeModal }) => {
+  const storage = window.localStorage;
   const [form, setForm] = useState({
     title: "",
     desciption: "",
@@ -14,10 +16,8 @@ const AddTickets = ({ closeModal }) => {
       [event.target.name]: event.target.value,
     });
   };
-
+  
   const handleSubmit = (event)=> {
-
-    event.preventDefault()
     putTicket(form)
   }
 
@@ -28,7 +28,7 @@ const AddTickets = ({ closeModal }) => {
           <button onClick={() => closeModal(false)}> X </button>
         </div>
         <h2>Add a Task</h2>
-        <form action="" onSubmit={handleSubmit} className="addTicketForm">
+        <form action="" className="addTicketForm">
           <label htmlFor="title"> Title</label>
           <input
             type="text"
@@ -43,10 +43,10 @@ const AddTickets = ({ closeModal }) => {
             name="desciption"
             onChange={handleInputChange}
           />
-          <div>
-            <button type="submit" >Save</button>
-          </div>
         </form>
+          <div>
+            <button type="" onClick={handleSubmit} >Save</button>
+          </div>
       </div>
     </div>
   );

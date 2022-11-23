@@ -54,7 +54,7 @@ export default function Task() {
             <b>To do</b>
           </h2>
           {/* <button onClick={}></button> */}
-          {taskNotDone.map((tickets) => (
+          {user.userDB.tickets.filter(ticket => ticket.status == "Not Done").map((tickets) => (
             <div key={tickets._id} className="CardTicket">
               <h3>Title: {tickets.title}</h3>
               <h4>Description: {tickets.desciption}</h4>

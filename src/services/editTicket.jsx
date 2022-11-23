@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 export const editTicket = (data,ticketId) => {
   const storage = window.localStorage;
+  storage.setItem("edited","false")
   
   fetch(
     `https://to-do-list-be.onrender.com/api/user/edit/${storage.getItem("UserId")}/${ticketId}`,
@@ -17,11 +18,11 @@ export const editTicket = (data,ticketId) => {
     .then((response) => response.json())
     .then((data) => {
       console.log(data, "hello");
+      storage.setItem("edited","true")
       
     })
     .catch((err) => {
       console.log(err.message);
     });
 
-    
 };

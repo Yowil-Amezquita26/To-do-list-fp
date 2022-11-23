@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { editTicket } from "../../hooks/editTicket";
-import { putTicket } from "../../hooks/putTicket";
+import { editTicket } from "../../services/editTicket";
+import { putTicket } from "../../services/putTicket";
 
 const EditTickets = ({ closeEditModal, data }) => {
   const navigate = useNavigate();
+  const storage = window.localStorage;
   const [form, setForm] = useState({
     title: data.title,
     desciption: data.desciption,
@@ -18,9 +19,13 @@ const EditTickets = ({ closeEditModal, data }) => {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault()
-    editTicket( form,data._id)
-    navigate("/task")
+    event.preventDefault();
+
+    editTicket(form, data._id);
+
+    if (storage.getItem("edited")) {
+      navigate("/task");
+    }
   };
 
   return (
@@ -48,7 +53,12 @@ const EditTickets = ({ closeEditModal, data }) => {
             value={form.desciption}
           />
           <label htmlFor="status"> Status </label>
-          <select name="status" id="status" onChange={handleInputChange} value={form.status}>
+          <select
+            name="status"
+            id="status"
+            onChange={handleInputChange}
+            value={form.status}
+          >
             <option value="Not Done">Not Done</option>
             <option value="Doing">Doing</option>
             <option value="Done">Done</option>

@@ -16,9 +16,6 @@ const CustomNav = () => {
         <Link to={"/home"} className={"MainButtons"}>
           <button>Home</button>
         </Link>
-        {/* <Link to={"/task"} className={"MainButtons"}>
-              <button>Task</button>
-            </Link> */}
         {isAuthenticated && (
           <div className="UlItems">
             <Link to={"/user-page"} className={"MainButtons"}>
