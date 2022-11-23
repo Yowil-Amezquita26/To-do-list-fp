@@ -3,13 +3,10 @@ import reactLogo from './assets/react.svg'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 // import './styles/normalize.css'
 import './App.css'
-import CustomNav from './components/navbar/CustomNav'
 import HomePage from './pages/HomePage'
 import UserPage from './pages/UserPage'
 import Task from './pages/taskPage/Task'
-import Profile from './components/Profile'
 import "./components/task/AddTicket.css"
-import Ticket from './components/task/Ticket'
 import LandingPage from './pages/LandingPage'
 
 
@@ -27,8 +24,6 @@ function App() {
         <Route path="/user-page" element={<UserPage/>}>
         </Route>
         <Route path="/task" element={<Task/>}>
-        </Route>
-        <Route path="/details/:id" element={<Ticket/>}>
         </Route>
       </Routes>
 

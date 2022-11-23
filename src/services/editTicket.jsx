@@ -19,6 +19,7 @@ export const editTicket = (data,ticketId) => {
     .then((data) => {
       console.log(data, "hello");
       storage.setItem("edited","true")
+      window.location.reload()
       
     })
     .catch((err) => {

@@ -46,6 +46,7 @@ const Ticket = (tickets) => {
       </button>
       <button onClick={handleDelete}>Delete Ticket</button>
       <div className="CardTicket" >
+        <h1>Hello</h1>
         <h3>Title: {ticket[0].title}</h3>
         <h4>Description: {ticket[0].desciption}</h4>
         <h4>Status:{ticket[0].status} </h4>

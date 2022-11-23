@@ -14,7 +14,7 @@ export const deleteTicket = (userId,ticketId) => {
     .then((data) => {
       console.log(data, "hello","delete","true");
       storage.setItem("deleted","true")
-      
+      window.location.reload()
     })
     .catch((err) => {
       console.log(err.message);

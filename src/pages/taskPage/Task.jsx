@@ -6,10 +6,13 @@ import { getUser } from "../../hooks/getUser";
 import { useAuth0 } from "@auth0/auth0-react";
 import AddTickets from "../../components/task/AddTickets";
 import { Link } from "react-router-dom";
+import Details from "../../components/task/Details";
 
 
 export default function Task() {
   const [openModal, setOpenModal] = useState(false);
+  const [openDetails, setOpenDetails] = useState(false);
+  const [task, setTask] = useState({})
   const storage = window.localStorage;
   let taskNotDone = {}
   let taskDoing = {}
@@ -48,6 +51,7 @@ export default function Task() {
         Add Ticket
       </button>
       {openModal && <AddTickets closeModal={setOpenModal}/>}
+      {openDetails && <Details closeModal={setOpenDetails} ticket={task}/>}
       <div className="Status">
         <div className="Tickets">
           <h2>
@@ -60,6 +64,7 @@ export default function Task() {
               <h4>Description: {tickets.desciption}</h4>
               <h4>Status: {tickets.status}</h4>
               <button ><Link to={`/details/${tickets._id}`}> Edit</Link></button>
+              <button onClick={() => {setOpenDetails(true), setTask(tickets)}} >Details</button>
             </div>
           ))}
         </div>
@@ -73,6 +78,7 @@ export default function Task() {
               <h4>Description: {tickets.desciption}</h4>
               <h4>Status: {tickets.status}</h4>
               <button ><Link to={`/details/${tickets._id}`}> Edit</Link></button>
+              <button onClick={() => {setOpenDetails(true), setTask(tickets)}} >Details</button>
             </div>
           ))}
         </div>
@@ -86,6 +92,7 @@ export default function Task() {
               <h4>Description: {tickets.desciption}</h4>
               <h4>Status: {tickets.status}</h4>
               <button ><Link to={`/details/${tickets._id}`}> Edit</Link></button>
+              <button onClick={() => {setOpenDetails(true), setTask(tickets)}} >Details</button>
             </div>
           ))}
         </div>
