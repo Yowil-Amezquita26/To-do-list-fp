@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import CustomNav from "../../components/navbar/CustomNav";
-import Ticket from "../../components/task/Ticket";
 import "./TaskStyles.css";
+
 import { getUser } from "../../hooks/getUser";
-import { useAuth0 } from "@auth0/auth0-react";
 import AddTickets from "../../components/task/AddTickets";
 import { Link } from "react-router-dom";
 import Details from "../../components/task/Details";
@@ -63,7 +62,6 @@ export default function Task() {
               <h3>Title: {tickets.title}</h3>
               <h4>Description: {tickets.desciption}</h4>
               <h4>Status: {tickets.status}</h4>
-              <button ><Link to={`/details/${tickets._id}`}> Edit</Link></button>
               <button onClick={() => {setOpenDetails(true), setTask(tickets)}} >Details</button>
             </div>
           ))}
@@ -77,7 +75,6 @@ export default function Task() {
               <h3>Title: {tickets.title}</h3>
               <h4>Description: {tickets.desciption}</h4>
               <h4>Status: {tickets.status}</h4>
-              <button ><Link to={`/details/${tickets._id}`}> Edit</Link></button>
               <button onClick={() => {setOpenDetails(true), setTask(tickets)}} >Details</button>
             </div>
           ))}
@@ -91,7 +88,6 @@ export default function Task() {
               <h3>Title: {tickets.title}</h3>
               <h4>Description: {tickets.desciption}</h4>
               <h4>Status: {tickets.status}</h4>
-              <button ><Link to={`/details/${tickets._id}`}> Edit</Link></button>
               <button onClick={() => {setOpenDetails(true), setTask(tickets)}} >Details</button>
             </div>
           ))}

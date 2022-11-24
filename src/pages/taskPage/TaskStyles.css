@@ -8,3 +8,12 @@
     flex-direction: column;
     align-items: center;
 }
+
+.CardTicket {
+    width: 15rem;
+    background-color: #8758ff;
+    display: block;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 1rem;
+  }
