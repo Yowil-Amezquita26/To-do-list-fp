@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function TicketsModal() {
-  return (
-    <div>TicketsModal</div>
-  )
+  return <div>TicketsModal</div>;
 }
 
-export default TicketsModal
+export default TicketsModal;

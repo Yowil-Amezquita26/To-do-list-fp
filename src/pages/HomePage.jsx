@@ -7,9 +7,8 @@ import { registerUser } from "../services/registerUser";
 
 const HomePage = () => {
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
-  
-  registerUser("https://to-do-list-be.onrender.com/api/user/register");
 
+  registerUser("https://to-do-list-be.onrender.com/api/user/register");
 
   return (
     <>

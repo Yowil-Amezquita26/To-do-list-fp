@@ -22,12 +22,12 @@ const Details = ({ closeModal, ticket }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    editTicket(form,ticket._id);
+    editTicket(form, ticket._id);
   };
-  const handleDelete = (event) =>{
+  const handleDelete = (event) => {
     event.preventDefault();
-    deleteTicket(storage.getItem("UserId"),ticket._id)
-  }
+    deleteTicket(storage.getItem("UserId"), ticket._id);
+  };
 
   return (
     <div className="modalBackground">
@@ -70,9 +70,9 @@ const Details = ({ closeModal, ticket }) => {
                 <option value="Doing">Doing</option>
                 <option value="Done">Done</option>
               </select>
-            <div>
-              <button type="submit">Save</button>
-            </div>
+              <div>
+                <button type="submit">Save</button>
+              </div>
             </form>
             <button onClick={() => setEdit(false)}>Detail</button>
           </div>

@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 export const editTicket = (data,ticketId) => {
   const storage = window.localStorage;
   storage.setItem("edited","false")

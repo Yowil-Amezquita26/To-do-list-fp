@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { putTicket } from "../../services/putTicket";
 
-
 const AddTickets = ({ closeModal }) => {
   const storage = window.localStorage;
   const [form, setForm] = useState({
@@ -10,16 +9,15 @@ const AddTickets = ({ closeModal }) => {
     status: "Not Done",
   });
   const handleInputChange = (event) => {
-
     setForm({
       ...form,
       [event.target.name]: event.target.value,
     });
   };
-  
-  const handleSubmit = (event)=> {
-    putTicket(form)
-  }
+
+  const handleSubmit = (event) => {
+    putTicket(form);
+  };
 
   return (
     <div className="modalBackground">
@@ -44,9 +42,11 @@ const AddTickets = ({ closeModal }) => {
             onChange={handleInputChange}
           />
         </form>
-          <div>
-            <button type="" onClick={handleSubmit} >Save</button>
-          </div>
+        <div>
+          <button type="" onClick={handleSubmit}>
+            Save
+          </button>
+        </div>
       </div>
     </div>
   );

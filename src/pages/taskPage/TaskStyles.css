@@ -1,6 +1,7 @@
 .Status{
     display: flex;
     justify-content: center;
+    justify-content: space-around;
 }
 
 .Tickets{

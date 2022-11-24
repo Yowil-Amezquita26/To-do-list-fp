@@ -1,9 +1,8 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { useState, useEffect } from "react";
-import { verifyUser } from "../hooks/verifyUser";
 
 export const registerUser = (url) => {
-  const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
+  const { user} = useAuth0();
 
   useEffect(
     () => {

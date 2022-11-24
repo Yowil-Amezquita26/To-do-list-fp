@@ -5,10 +5,8 @@ import "./CustomNav.css";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
-const UserLoged = () => {};
-
 const CustomNav = () => {
-  const { loginWithRedirect, isAuthenticated } = useAuth0();
+  const { isAuthenticated } = useAuth0();
   return (
     <nav className="customNavBar">
       <h2 className="customNavBar Title">To-do-list</h2>

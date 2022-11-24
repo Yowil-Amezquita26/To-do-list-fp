@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 export const deleteTicket = (userId,ticketId) => {
   const storage = window.localStorage;
   storage.setItem("deleted","false")

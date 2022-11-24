@@ -18,7 +18,7 @@ export const getUser = (url) => {
         }
         let json = await res.json();
         console.log(json.userDB.email);
-        storage.setItem("UserId",json.userDB._id)
+        storage.setItem("UserId", json.userDB._id);
         setUser(json);
         setisPending(false);
         setError({ err: false });

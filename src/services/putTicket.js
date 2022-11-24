@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const putTicket = (data) => {
     const storage = window.localStorage;
     storage.setItem("added",false)
