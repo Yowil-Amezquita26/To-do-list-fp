@@ -1,4 +1,3 @@
-import React from "react";
 import CustomNav from "../components/navbar/CustomNav";
 import Profile from "../components/Profile";
 

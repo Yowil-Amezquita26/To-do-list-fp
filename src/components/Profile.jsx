@@ -1,10 +1,7 @@
-import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { verifyUser } from "../hooks/verifyUser";
 
 const Profile = () => {
-  const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
-  const [userMetadata, setUserMetadata] = useState(null);
+  const { user, isAuthenticated } = useAuth0();
 
   return (
     <>

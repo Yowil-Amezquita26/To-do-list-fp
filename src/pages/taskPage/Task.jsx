@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import CustomNav from "../../components/navbar/CustomNav";
 import "./TaskStyles.css";
+import "../../components/loading/loading.css";
 import { getUser } from "../../hooks/getUser";
 import AddTickets from "../../components/task/AddTickets";
 import Details from "../../components/task/Details";
+import Loading from "../../components/loading/Loading";
 
 export default function Task() {
   const [openModal, setOpenModal] = useState(false);
@@ -21,9 +23,9 @@ export default function Task() {
   const { user, isPending, error } = getUser(url);
   if (isPending) {
     return (
-      <h2>
-        <b>Loading...</b>
-      </h2>
+      <>
+        <Loading />
+      </>
     );
   }
 

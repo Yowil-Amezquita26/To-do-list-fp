@@ -1,13 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import UserPage from "./pages/UserPage";
-import Task from "./pages/taskPage/Task";
-import "./components/task/AddTicket.css";
-import LandingPage from "./pages/LandingPage";
+import HomePage from "../pages/HomePage";
+import LandingPage from "../pages/LandingPage";
+import Task from "../pages/taskPage/Task";
+import UserPage from "../pages/UserPage";
 
-export default function Routes() {
-
+export default function Rutas() {
   return (
     <div>
       <Router>
@@ -21,5 +19,3 @@ export default function Routes() {
     </div>
   );
 }
-
-

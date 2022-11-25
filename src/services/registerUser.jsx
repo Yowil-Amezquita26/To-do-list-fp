@@ -1,5 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 export const registerUser = (url) => {
   const { user} = useAuth0();
