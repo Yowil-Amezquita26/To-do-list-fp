@@ -7,10 +7,7 @@ const HomePage = () => {
 
   return (
     <>
-      <CustomNav />
       <div>HomePage</div>
-      <div className="card"></div>
-      <Loading />
     </>
   );
 };

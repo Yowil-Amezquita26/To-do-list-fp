@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { deleteTicket } from "../../services/deleteTicket";
-import { editTicket } from "../../services/editTicket";
+import { deleteTicket } from "../../../services/deleteTicket";
+import { editTicket } from "../../../services/editTicket";
 
-const Details = ({ closeModal, ticket }) => {
+const Details = ({ closeModal, ticket, isPending }) => {
   const storage = window.localStorage;
   console.log(ticket);
   const [form, setForm] = useState({
@@ -22,26 +22,29 @@ const Details = ({ closeModal, ticket }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    editTicket(form, ticket._id);
+    editTicket(form, ticket._id, { closeModal, isPending });
   };
   const handleDelete = (event) => {
     event.preventDefault();
-    deleteTicket(storage.getItem("UserId"), ticket._id);
+    deleteTicket(storage.getItem("UserId"), ticket._id, {
+      closeModal,
+      isPending,
+    });
   };
 
   return (
     <div className="modalBackground">
-      <div className="modalContainer">
+      <section className="modalContainer">
         <div className="closeButton">
           <button onClick={() => closeModal(false)}> X </button>
         </div>
 
         {edit ? (
-          <div>
-            <h1>Edit</h1>
+          <section className="formContent">
+            <h2>Edit</h2>
 
-            <form action="" onSubmit={handleSubmit} className="addTicketForm">
-              <label htmlFor="title">
+            <form action="" onSubmit={handleSubmit} className="formStyle">
+              <label htmlFor="title" className="formLabel">
                 <b>Title</b>
               </label>
               <input
@@ -71,26 +74,34 @@ const Details = ({ closeModal, ticket }) => {
                 <option value="Done">Done</option>
               </select>
               <div>
-                <button type="submit">Save</button>
+                <button className="detailsButton" type="submit">
+                  Save
+                </button>
               </div>
             </form>
-            <button onClick={() => setEdit(false)}>Detail</button>
-          </div>
+            <button className="detailsButton" onClick={() => setEdit(false)}>
+              Detail
+            </button>
+          </section>
         ) : (
-          <div>
-            <h1>Details</h1>
-            <h2>Title:</h2>
-            <h3> {form.title}</h3>
-            <h2>Description:</h2>
-            <p> {form.desciption}</p>
-            <h2>Status:</h2>
-            <h3> {form.status}</h3>
+          <section className="detailContainer">
+            <h2>Details</h2>
+            <h2 className="detailTitle">Title:</h2>
+            <h3 className="detailInfo"> {form.title}</h3>
+            <h2 className="detailTitle">Description:</h2>
+            <p className="detailInfo"> {form.desciption}</p>
+            <h2 className="detailTitle">Status:</h2>
+            <h3 className="detailInfo"> {form.status}</h3>
 
-            <button onClick={() => setEdit(true)}>Edit</button>
-          </div>
+            <button className="detailsButton" onClick={() => setEdit(true)}>
+              Edit
+            </button>
+          </section>
         )}
-        <button onClick={handleDelete}>Delete</button>
-      </div>
+        <button className="detailsButton" onClick={handleDelete}>
+          Delete
+        </button>
+      </section>
     </div>
   );
 };

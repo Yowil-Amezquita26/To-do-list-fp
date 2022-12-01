@@ -1,15 +1,20 @@
-import { useState } from "react";
+import { BrowserRouter as HashRouter } from "react-router-dom";
 import "./App.css";
-import "./components/task/AddTicket.css";
+import CustomNav from "./components/navbar/CustomNav";
 import Rutas from "./router/Rutas";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="App">
-      <Rutas />
-    </div>
+    <>
+      <HashRouter>
+        <nav>
+          <CustomNav />
+        </nav>
+        <main className="mainContent">
+          <Rutas />
+        </main>
+      </HashRouter>
+    </>
   );
 }
 

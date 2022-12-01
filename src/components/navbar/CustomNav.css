@@ -4,6 +4,9 @@
   justify-content: flex-end;
   align-items: center;
   height: 5rem;
+  z-index: 1;
+  top: 0;
+  left: 0;
 }
 .customNavBar .Title {
   margin-right: 12rem;

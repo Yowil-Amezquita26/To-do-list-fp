@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { putTicket } from "../../services/putTicket";
+import { putTicket } from "../../../services/putTicket";
 
-const AddTickets = ({ closeModal }) => {
-  const storage = window.localStorage;
+const AddTickets = ({ closeModal, isPending }) => {
+  console.log(isPending);
   const [form, setForm] = useState({
     title: "",
     desciption: "",
@@ -16,7 +16,7 @@ const AddTickets = ({ closeModal }) => {
   };
 
   const handleSubmit = (event) => {
-    putTicket(form);
+    putTicket(form, { closeModal }, { isPending });
   };
 
   return (

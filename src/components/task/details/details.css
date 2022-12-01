@@ -1,0 +1,13 @@
+.detailContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.detailTitle {
+  margin: 1rem;
+}
+
+.detailInfo {
+  margin: 0.1rem;
+}

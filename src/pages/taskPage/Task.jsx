@@ -1,26 +1,58 @@
 import React, { useState } from "react";
-import CustomNav from "../../components/navbar/CustomNav";
 import "./TaskStyles.css";
 import "../../components/loading/loading.css";
+import "../../styles/form.css";
+import "../../components/task/details/details.css";
+import "../../components/task/addTicket/AddTicket.css";
 import { getUser } from "../../hooks/getUser";
-import AddTickets from "../../components/task/AddTickets";
-import Details from "../../components/task/Details";
+import AddTickets from "../../components/task/addTicket/AddTickets";
+import Details from "../../components/task/details/Details";
 import Loading from "../../components/loading/Loading";
+import Tickets from "../../components/task/Tickets";
+import { useEffect } from "react";
 
 export default function Task() {
   const [openModal, setOpenModal] = useState(false);
   const [openDetails, setOpenDetails] = useState(false);
   const [task, setTask] = useState({});
+  const [user, setUser] = useState(null);
+  const [isPending, setisPending] = useState(true);
+  const [error, setError] = useState(null);
   const storage = window.localStorage;
-  let taskNotDone = {};
-  let taskDoing = {};
-  let taskDone = {};
-
   let url = `https://to-do-list-be.onrender.com/api/user/${storage.getItem(
     "UserEmail"
   )}`;
+  useEffect(() => {
+    const User = async (url) => {
+      try {
+        let res = await fetch(url);
+        if (!res.ok) {
+          throw {
+            err: true,
+            status: res.status,
+            statusText: !res.statusText ? "Ocurrio un error" : res.statusText,
+          };
+        }
+        let json = await res.json();
+        console.log(json.userDB.email);
+        storage.setItem("UserId", json.userDB._id);
+        setUser(json);
+        setisPending(false);
+        setError({ err: false });
+      } catch (err) {
+        setisPending(true);
+        setError(err);
+      }
+    };
 
-  const { user, isPending, error } = getUser(url);
+    User(
+      `https://to-do-list-be.onrender.com/api/user/${storage.getItem(
+        "UserEmail"
+      )}`
+    );
+  }, [openModal, openDetails]);
+
+  // const { user, isPending, error } = getUser(url);
   if (isPending) {
     return (
       <>
@@ -29,16 +61,10 @@ export default function Task() {
     );
   }
 
-  taskNotDone = user.userDB.tickets.filter(
-    (ticket) => ticket.status == "Not Done"
-  );
-  taskDoing = user.userDB.tickets.filter((ticket) => ticket.status == "Doing");
-  taskDone = user.userDB.tickets.filter((ticket) => ticket.status == "Done");
-
   return (
-    <main>
-      <CustomNav />
-      <main className="mainContent">
+    <>
+      {/* <CustomNav /> */}
+      <section className="taskHeader">
         <h2>Tasks</h2>
         <button
           className="openModalBtn"
@@ -48,71 +74,64 @@ export default function Task() {
         >
           Add Ticket
         </button>
-        {openModal && <AddTickets closeModal={setOpenModal} />}
-        {openDetails && <Details closeModal={setOpenDetails} ticket={task} />}
-        <section className="content">
-          <div className="Tickets">
-            <h2>
-              <b>To do</b>
-            </h2>
-            {/* <button onClick={}></button> */}
-            {user.userDB.tickets
-              .filter((ticket) => ticket.status == "Not Done")
-              .map((tickets) => (
-                <div key={tickets._id} className="CardTicket">
-                  <h3>Title: {tickets.title}</h3>
-                  <h4>Description: {tickets.desciption}</h4>
-                  <h4>Status: {tickets.status}</h4>
-                  <button
-                    onClick={() => {
-                      setOpenDetails(true), setTask(tickets);
-                    }}
-                  >
-                    Details
-                  </button>
-                </div>
-              ))}
-          </div>
-          <div className="Tickets">
-            <h2>
-              <b>Doing</b>
-            </h2>
-            {taskDoing.map((tickets) => (
-              <div key={tickets._id} className="CardTicket">
-                <h3>Title: {tickets.title}</h3>
-                <h4>Description: {tickets.desciption}</h4>
-                <h4>Status: {tickets.status}</h4>
-                <button
-                  onClick={() => {
-                    setOpenDetails(true), setTask(tickets);
-                  }}
-                >
-                  Details
-                </button>
-              </div>
+      </section>
+      {openModal && (
+        <AddTickets closeModal={setOpenModal} isPending={setisPending} />
+      )}
+      {openDetails && (
+        <Details
+          closeModal={setOpenDetails}
+          ticket={task}
+          isPending={setisPending}
+        />
+      )}
+      <section className="content">
+        <div className="Tickets">
+          <h2>
+            <b>To do</b>
+          </h2>
+          {user.userDB.tickets
+            .filter((ticket) => ticket.status == "Not Done")
+            .map((tickets, index) => (
+              <Tickets
+                key={`notDone${index}`}
+                tickets={tickets}
+                OpenDetails={setOpenDetails}
+                setTask={setTask}
+              />
             ))}
-          </div>
-          <div className="Tickets">
-            <h2>
-              <b>Done</b>
-            </h2>
-            {taskDone.map((tickets) => (
-              <div key={tickets._id} className="CardTicket">
-                <h3>Title: {tickets.title}</h3>
-                <h4>Description: {tickets.desciption}</h4>
-                <h4>Status: {tickets.status}</h4>
-                <button
-                  onClick={() => {
-                    setOpenDetails(true), setTask(tickets);
-                  }}
-                >
-                  Details
-                </button>
-              </div>
+        </div>
+        <div className="Tickets">
+          <h2>
+            <b>Doing</b>
+          </h2>
+          {user.userDB.tickets
+            .filter((ticket) => ticket.status == "Doing")
+            .map((tickets, index) => (
+              <Tickets
+                key={`Doing${index}`}
+                tickets={tickets}
+                OpenDetails={setOpenDetails}
+                setTask={setTask}
+              />
             ))}
-          </div>
-        </section>
-      </main>
-    </main>
+        </div>
+        <div className="Tickets">
+          <h2>
+            <b>Done</b>
+          </h2>
+          {user.userDB.tickets
+            .filter((ticket) => ticket.status == "Done")
+            .map((tickets, index) => (
+              <Tickets
+                key={`Done${index}`}
+                tickets={tickets}
+                OpenDetails={setOpenDetails}
+                setTask={setTask}
+              />
+            ))}
+        </div>
+      </section>
+    </>
   );
 }

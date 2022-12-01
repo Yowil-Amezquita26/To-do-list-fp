@@ -1,0 +1,44 @@
+.formContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formStyle {
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.formLabel {
+  margin: 2px;
+}
+
+input {
+  font-size: 1.05rem;
+  margin: 0.5rem;
+}
+
+select {
+  font-size: 1.05rem;
+  margin: 0.5rem;
+}
+
+.formButton {
+  width: 3rem;
+  height: 2.5rem;
+  margin-left: 15px;
+  border-radius: 10%;
+}
+.searchButton:hover {
+  background-color: #4dad5b;
+}
+
+/*------------------------responsive----------------------*/
+
+@media screen and (max-width: 600px) {
+  .formStyle {
+    flex-direction: column;
+  }
+}

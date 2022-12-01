@@ -5,17 +5,12 @@ const Profile = () => {
 
   return (
     <>
-      {isAuthenticated === true ? (
-        <div>
+      {isAuthenticated && (
+        <section className="profile">
           <h2>Profile</h2>
           <h3>Hello {user.name}</h3>
           <img src={user.picture} alt="" />
-        </div>
-      ) : (
-        <div>
-          <h2>Profile</h2>
-          Hello User try to login
-        </div>
+        </section>
       )}
     </>
   );

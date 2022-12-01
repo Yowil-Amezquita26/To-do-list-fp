@@ -1,4 +1,4 @@
-export const editTicket = (data, ticketId) => {
+export const editTicket = (data, ticketId, { closeModal, isPending }) => {
   const storage = window.localStorage;
   storage.setItem("edited", "false");
 
@@ -19,7 +19,9 @@ export const editTicket = (data, ticketId) => {
     .then((data) => {
       console.log(data, "hello");
       storage.setItem("edited", "true");
-      window.location.reload();
+      closeModal(false);
+      isPending(true);
+      // window.location.reload();
     })
     .catch((err) => {
       console.log(err.message);

@@ -7,15 +7,13 @@ import UserPage from "../pages/UserPage";
 
 export default function Rutas() {
   return (
-    <div>
-      <Router>
-        <Routes>
-          <Route exact path="/" element={<LandingPage />}></Route>
-          <Route path="/home" element={<HomePage />}></Route>
-          <Route path="/user-page" element={<UserPage />}></Route>
-          <Route path="/task" element={<Task />}></Route>
-        </Routes>
-      </Router>
-    </div>
+    <>
+      <Routes>
+        <Route exact path="/" element={<LandingPage />}></Route>
+        <Route path="/home" element={<HomePage />}></Route>
+        <Route path="/user-page" element={<UserPage />}></Route>
+        <Route path="/task" element={<Task />}></Route>
+      </Routes>
+    </>
   );
 }
