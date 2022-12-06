@@ -1,0 +1,92 @@
+.burguerButton {
+  display: none;
+}
+.navButtonContainer {
+  display: flex;
+}
+@media screen and (max-width: 1200px) {
+  .rigthContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 50%;
+  }
+
+  .rigthContainer.open {
+    margin-top:17.9rem
+  }
+
+  .burguerButton {
+    display: none;
+    visibility: hidden;
+  }
+
+  .bar {
+    position: relative;
+    cursor: pointer;
+    width: 5.125rem;
+    height: 2.5rem;
+  }
+
+  .bar span {
+    position: absolute;
+    width: 2.8125rem;
+    height: 0.438rem;
+    background: #f1faee;
+    border-radius: 6.25rem;
+    display: inline-block;
+    transition: 0.3s ease;
+    left: 0;
+  }
+
+  .bar span.top {
+    top: 0;
+  }
+
+  .bar span.middle {
+    top: 1.063rem;
+  }
+
+  .bar span.bottom {
+    bottom: 0;
+  }
+  
+  .burguerButton:checked ~ span.top {
+    transform: rotate(45deg);
+    transform-origin: top left;
+    width: 3rem;
+    left: 0.313rem;
+  }
+
+  .burguerButton:checked ~ span.bottom {
+    transform: rotate(-45deg);
+    transform-origin: top left;
+    width: 3rem;
+    bottom: -0.063rem;
+    box-shadow: 0 0 0.625rem #495057;
+  }
+
+  .burguerButton:checked ~ span.middle {
+    transform: translateX(-1.25rem);
+    opacity: 0;
+  }
+  .links {
+    display: none;
+  }
+  .links.open {
+    display: flex;
+    width: auto;
+    z-index: 1;
+    transition: 15s linear;
+  }
+  .navButtonContainer {
+    display: flex;
+    background-color: rgb(66, 66, 248);
+    flex-direction: column;
+  }
+
+  .navButtonContainer:hover .overlay {
+    height: 100%;
+    width: 20rem;
+  }
+}

@@ -51,6 +51,7 @@ const Details = ({ closeModal, ticket, isPending }) => {
                 type="text"
                 id="title"
                 name="title"
+                className="formInput"
                 onChange={handleInputChange}
                 value={form.title}
               />
@@ -59,6 +60,7 @@ const Details = ({ closeModal, ticket, isPending }) => {
                 type="text"
                 id="desciption"
                 name="desciption"
+                className="formInput"
                 onChange={handleInputChange}
                 value={form.desciption}
               />
@@ -66,6 +68,7 @@ const Details = ({ closeModal, ticket, isPending }) => {
               <select
                 name="status"
                 id="status"
+                className="formSelect"
                 onChange={handleInputChange}
                 value={form.status}
               >

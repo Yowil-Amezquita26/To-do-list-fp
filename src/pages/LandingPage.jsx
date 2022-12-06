@@ -6,8 +6,10 @@ function LandingPage() {
   const { isAuthenticated } = useAuth0();
   return (
     <>
-      <div>LandingPage</div>
-      <LoginButton />
+      <section className="landingContent">
+        <div>LandingPage</div>
+        <LoginButton />
+      </section>
     </>
   );
 }

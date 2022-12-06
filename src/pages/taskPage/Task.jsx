@@ -54,11 +54,7 @@ export default function Task() {
 
   // const { user, isPending, error } = getUser(url);
   if (isPending) {
-    return (
-      <>
-        <Loading />
-      </>
-    );
+    return <Loading />;
   }
 
   return (

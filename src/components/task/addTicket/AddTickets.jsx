@@ -32,6 +32,7 @@ const AddTickets = ({ closeModal, isPending }) => {
             type="text"
             id="title"
             name="title"
+            className="formInput"
             onChange={handleInputChange}
           />
           <label htmlFor="desciption"> Description</label>
@@ -39,6 +40,7 @@ const AddTickets = ({ closeModal, isPending }) => {
             type="text"
             id="desciption"
             name="desciption"
+            className="formInput"
             onChange={handleInputChange}
           />
         </form>

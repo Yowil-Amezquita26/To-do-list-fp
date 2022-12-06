@@ -1,15 +1,31 @@
 /* Css created */
 .customNavBar {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
+  background-color: rgb(66, 66, 248);
   height: 5rem;
   z-index: 1;
   top: 0;
   left: 0;
 }
+.titleContainer{
+  display: flex;
+  width: 13rem;
+  justify-content: center;
+}
+
+.navLinks {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  background-color: rgb(66, 66, 248);
+  z-index: 1;
+}
 .customNavBar .Title {
-  margin-right: 12rem;
+  display: flex;
+  align-items: center;
+  margin-left: 46%;
 }
 .customNavBar .navButtons {
   position: absolute;
@@ -25,4 +41,8 @@
 .MainButtons {
   display: flex;
   margin: 1rem;
+}
+
+@media screen and (max-width: 1200px){
+
 }

@@ -15,14 +15,37 @@
   margin: 2px;
 }
 
-input {
+.formInput {
+  color: #f5f3f7;
+  border: 2px solid #fcfbfd;
+  border-radius: 10px;
+  padding: 10px 25px;
+  background: transparent;
+  max-width: 190px;
   font-size: 1.05rem;
   margin: 0.5rem;
 }
 
-select {
+.formInput:active {
+  box-shadow: 2px 2px 15px #8707ff inset;
+}
+.formSelect {
+  color: #f5f3f7;
+  border: 2px solid #fcfbfd;
+  border-radius: 10px;
+  padding: 10px 25px;
+  background: transparent;
+  max-width: 190px;
   font-size: 1.05rem;
   margin: 0.5rem;
+  appearance: none;
+}
+
+option {
+  background: #242424;
+}
+option:hover {
+  background-color: #8707ff;
 }
 
 .formButton {
