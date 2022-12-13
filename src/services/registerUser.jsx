@@ -1,7 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect } from "react";
 
-export const registerUser = (url) => {
+export const registerUser = (url, {setRegister}) => {
   const { user} = useAuth0();
 
   useEffect(
@@ -23,6 +23,7 @@ export const registerUser = (url) => {
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
+            setRegister(true)
 
           })
           .catch((err) => {

@@ -1,4 +1,4 @@
-export const deleteTicket = (userId, ticketId, { closeModal }) => {
+export const deleteTicket = (userId, ticketId, { closeModal}) => {
   const storage = window.localStorage;
   storage.setItem("deleted", "false");
 
@@ -10,12 +10,10 @@ export const deleteTicket = (userId, ticketId, { closeModal }) => {
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data, "hello", "delete", "true");
       storage.setItem("deleted", "true");
       closeModal(false);
       // window.location.reload();
     })
     .catch((err) => {
-      console.log(err.message);
     });
 };

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 export const getUser = (url) => {
-  const [user, setUser] = useState(null);
+  const [logUser, setlogUser] = useState(null);
   const [isPending, setisPending] = useState(true);
   const [error, setError] = useState(null);
   const storage = window.localStorage;
@@ -17,9 +17,8 @@ export const getUser = (url) => {
           };
         }
         let json = await res.json();
-        console.log(json.userDB.email);
         storage.setItem("UserId", json.userDB._id);
-        setUser(json);
+        setlogUser(json);
         setisPending(false);
         setError({ err: false });
       } catch (err) {
@@ -31,5 +30,5 @@ export const getUser = (url) => {
     User(url);
   }, [url]);
 
-  return { user, isPending, error };
+  return { logUser, isPending, error };
 };

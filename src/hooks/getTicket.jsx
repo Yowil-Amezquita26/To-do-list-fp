@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 
-export const getTicket = (url) => {
+export const getTicket = (email) => {
   const [isPending, setisPending] = useState(true);
   const [error, setError] = useState(null);
-  const [ticket, setTicket] = useState(null);
+  const [LogUser, setLogUser] = useState(null);
   useEffect(() => {
     const getUser = async (url) => {
       try {
@@ -16,7 +16,7 @@ export const getTicket = (url) => {
           };
         }
         let json = await res.json();
-        setTicket(json);
+        setLogUser(json);
         setisPending(false);
         setError({ err: false });
       } catch (err) {
@@ -28,5 +28,5 @@ export const getTicket = (url) => {
     getUser(url);
   }, [url]);
 
-  return { ticket, isPending, error };
+  return { LogUser, isPending, error };
 };

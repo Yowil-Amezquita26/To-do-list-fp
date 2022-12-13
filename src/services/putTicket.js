@@ -1,4 +1,4 @@
-export const putTicket = (data, { closeModal }, { isPending }) => {
+export const putTicket = (data, { closeModal }, { isPending }, {setUpdate}) => {
   const storage = window.localStorage;
   storage.setItem("added", false);
   fetch(
@@ -16,10 +16,10 @@ export const putTicket = (data, { closeModal }, { isPending }) => {
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data, "hello added");
       storage.setItem("added", true);
       closeModal(false);
       isPending(true);
+      setUpdate(true)
       // window.location.reload();
       // Handle data
     })

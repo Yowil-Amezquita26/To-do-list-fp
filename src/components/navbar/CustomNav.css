@@ -5,6 +5,8 @@
   align-items: center;
   background-color: rgb(66, 66, 248);
   height: 5rem;
+  width: 100%;
+  /* position: fixed; */
   z-index: 1;
   top: 0;
   left: 0;

@@ -17,7 +17,6 @@ export const verifyUser = (url) => {
           };
         }
         let json = await res.json();
-        console.log(json.messaje);
         storage.setItem("UserEmail", json.userDB.email);
         storage.setItem("UserId", json.userDB.id);
         setVerify(json);
@@ -31,6 +30,5 @@ export const verifyUser = (url) => {
 
     verifyUser(url);
   }, [url]);
-  console.log(verify, isPending, error);
   return { verify, isPending, error };
 };

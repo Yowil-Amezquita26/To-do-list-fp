@@ -17,13 +17,12 @@ export const editTicket = (data, ticketId, { closeModal, isPending }) => {
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data, "hello");
       storage.setItem("edited", "true");
       closeModal(false);
+
       isPending(true);
       // window.location.reload();
     })
     .catch((err) => {
-      console.log(err.message);
     });
 };

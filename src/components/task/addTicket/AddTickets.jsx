@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { putTicket } from "../../../services/putTicket";
 
-const AddTickets = ({ closeModal, isPending }) => {
-  console.log(isPending);
+const AddTickets = ({ closeModal, isPending, setUpdate }) => {
   const [form, setForm] = useState({
     title: "",
     desciption: "",
@@ -16,7 +15,7 @@ const AddTickets = ({ closeModal, isPending }) => {
   };
 
   const handleSubmit = (event) => {
-    putTicket(form, { closeModal }, { isPending });
+    putTicket(form, { closeModal }, { isPending }, {setUpdate});
   };
 
   return (

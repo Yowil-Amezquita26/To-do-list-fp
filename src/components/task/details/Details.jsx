@@ -4,7 +4,6 @@ import { editTicket } from "../../../services/editTicket";
 
 const Details = ({ closeModal, ticket, isPending }) => {
   const storage = window.localStorage;
-  console.log(ticket);
   const [form, setForm] = useState({
     title: ticket.title,
     desciption: ticket.desciption,
@@ -17,7 +16,6 @@ const Details = ({ closeModal, ticket, isPending }) => {
       ...form,
       [event.target.name]: event.target.value,
     });
-    console.log(form);
   };
 
   const handleSubmit = (event) => {

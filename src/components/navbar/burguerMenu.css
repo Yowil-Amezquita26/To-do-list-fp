@@ -4,7 +4,7 @@
 .navButtonContainer {
   display: flex;
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 950px) {
   .rigthContainer {
     display: flex;
     flex-direction: column;

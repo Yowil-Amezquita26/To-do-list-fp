@@ -10,8 +10,9 @@ import Details from "../../components/task/details/Details";
 import Loading from "../../components/loading/Loading";
 import Tickets from "../../components/task/Tickets";
 import { useEffect } from "react";
+import Layout from "../../components/Layout";
 
-export default function Task() {
+export default function Task({ logedin, setUpdate }) {
   const [openModal, setOpenModal] = useState(false);
   const [openDetails, setOpenDetails] = useState(false);
   const [task, setTask] = useState({});
@@ -34,11 +35,11 @@ export default function Task() {
           };
         }
         let json = await res.json();
-        console.log(json.userDB.email);
         storage.setItem("UserId", json.userDB._id);
         setUser(json);
         setisPending(false);
         setError({ err: false });
+        setUpdate(false)
       } catch (err) {
         setisPending(true);
         setError(err);
@@ -59,75 +60,77 @@ export default function Task() {
 
   return (
     <>
-      {/* <CustomNav /> */}
-      <section className="taskHeader">
-        <h2>Tasks</h2>
-        <button
-          className="openModalBtn"
-          onClick={() => {
-            setOpenModal(true);
-          }}
-        >
-          Add Ticket
-        </button>
-      </section>
-      {openModal && (
-        <AddTickets closeModal={setOpenModal} isPending={setisPending} />
-      )}
-      {openDetails && (
-        <Details
-          closeModal={setOpenDetails}
-          ticket={task}
-          isPending={setisPending}
-        />
-      )}
-      <section className="content">
-        <div className="Tickets">
-          <h2>
-            <b>To do</b>
-          </h2>
-          {user.userDB.tickets
-            .filter((ticket) => ticket.status == "Not Done")
-            .map((tickets, index) => (
-              <Tickets
-                key={`notDone${index}`}
-                tickets={tickets}
-                OpenDetails={setOpenDetails}
-                setTask={setTask}
-              />
-            ))}
-        </div>
-        <div className="Tickets">
-          <h2>
-            <b>Doing</b>
-          </h2>
-          {user.userDB.tickets
-            .filter((ticket) => ticket.status == "Doing")
-            .map((tickets, index) => (
-              <Tickets
-                key={`Doing${index}`}
-                tickets={tickets}
-                OpenDetails={setOpenDetails}
-                setTask={setTask}
-              />
-            ))}
-        </div>
-        <div className="Tickets">
-          <h2>
-            <b>Done</b>
-          </h2>
-          {user.userDB.tickets
-            .filter((ticket) => ticket.status == "Done")
-            .map((tickets, index) => (
-              <Tickets
-                key={`Done${index}`}
-                tickets={tickets}
-                OpenDetails={setOpenDetails}
-                setTask={setTask}
-              />
-            ))}
-        </div>
-      </section>
+      <Layout logedin>
+        <section className="taskHeader">
+          <h2>Tasks</h2>
+          <button
+            className="openModalBtn"
+            onClick={() => {
+              setOpenModal(true);
+            }}
+          >
+            Add Ticket
+          </button>
+        </section>
+        {openModal && (
+          <AddTickets closeModal={setOpenModal} isPending={setisPending} setUpdate={setUpdate} />
+        )}
+        {openDetails && (
+          <Details
+            closeModal={setOpenDetails}
+            ticket={task}
+            isPending={setisPending}
+          />
+        )}
+        <section className="contentTask">
+          <div className="Tickets">
+            <h2 className="statusHearder">
+              <b>To-do</b>
+            </h2>
+            {user.userDB.tickets
+              .filter((ticket) => ticket.status == "Not Done")
+              .map((tickets, index) => (
+                <Tickets
+                  key={`notDone${index}`}
+                  tickets={tickets}
+                  OpenDetails={setOpenDetails}
+                  setTask={setTask}
+                />
+              ))}
+          </div>
+          <div className="Tickets">
+            <h2 className="statusHearder">
+              <b>Doing</b>
+            </h2>
+            {user.userDB.tickets
+              .filter((ticket) => ticket.status == "Doing")
+              .map((tickets, index) => (
+                <Tickets
+                  key={`Doing${index}`}
+                  tickets={tickets}
+                  OpenDetails={setOpenDetails}
+                  setTask={setTask}
+                />
+              ))}
+          </div>
+          <div className="Tickets">
+            <h2 className="statusHearder">
+              <b>Done</b>
+            </h2>
+            {user.userDB.tickets
+              .filter((ticket) => ticket.status == "Done")
+              .map((tickets, index) => (
+                <Tickets
+                  key={`Done${index}`}
+                  tickets={tickets}
+                  OpenDetails={setOpenDetails}
+                  
+                  setTask={setTask}
+                />
+              ))}
+          </div>
+        </section>
+      </Layout>
     </>
   );
 }

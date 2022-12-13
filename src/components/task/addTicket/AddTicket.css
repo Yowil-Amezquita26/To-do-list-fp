@@ -1,10 +1,12 @@
 .modalBackground {
   width: 100vw;
   height: 100vh;
-  position: fixed;
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  position: absolute;
+  left: 0%;
+  top: 15%;
 }
 
 .modalContainer {

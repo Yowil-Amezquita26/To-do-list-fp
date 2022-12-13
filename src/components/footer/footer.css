@@ -1,0 +1,9 @@
+.homeFooter {
+  width: 100vw;
+  text-align: center;
+  background-color: rgb(66, 66, 248);;
+}
+.footerContent {
+  margin-top: auto;
+  padding: 10px;
+}
