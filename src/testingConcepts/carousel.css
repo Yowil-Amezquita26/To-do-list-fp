@@ -1,0 +1,36 @@
+
+::before,
+::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.carouselContainer{
+    min-height: 48vh;
+    min-width: 2vw;
+    width: 23rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel{
+    margin: 0 auto;
+    overflow: hidden;
+    max-width: 900px;
+    position: relative;
+}
+.carousel-inner{
+    white-space: nowrap;
+    display: flex;
+    flex-direction: row;
+    transition: ease 1s;
+}
+.carousel-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20rem;
+    min-width: 100%;
+}

@@ -11,13 +11,14 @@
 
 .modalContainer {
   width: 500px;
-  height: 500px;
+  height: 520px;
   border-radius: 12px;
   background-color: rgb(18, 14, 27);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 25px;
 }
 

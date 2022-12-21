@@ -1,0 +1,11 @@
+.imageContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.imageGallery {
+  width: auto;
+  height: 20rem;
+
+}

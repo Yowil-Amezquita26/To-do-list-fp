@@ -8,6 +8,10 @@
   
 }
 
+.ticketImage{
+  width: 10rem;
+}
+
 .Status {
   display: flex;
   justify-content: center;

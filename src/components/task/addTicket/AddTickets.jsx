@@ -1,21 +1,18 @@
 import React, { useState } from "react";
 import { putTicket } from "../../../services/putTicket";
 
-const AddTickets = ({ closeModal, isPending, setUpdate }) => {
-  const [form, setForm] = useState({
-    title: "",
-    desciption: "",
-    status: "Not Done",
-  });
-  const handleInputChange = (event) => {
-    setForm({
-      ...form,
-      [event.target.name]: event.target.value,
-    });
-  };
+const AddTickets = ({
+  closeModal,
+  isPending,
+  setUpdate,
+  form,
+  setform,
+  handleOpenWidget,
+  handleInputChange,
+}) => {
 
-  const handleSubmit = (event) => {
-    putTicket(form, { closeModal }, { isPending }, {setUpdate});
+  const handleSubmit = () => {
+    putTicket(form, { closeModal }, { isPending }, { setUpdate });
   };
 
   return (
@@ -43,6 +40,10 @@ const AddTickets = ({ closeModal, isPending, setUpdate }) => {
             onChange={handleInputChange}
           />
         </form>
+        <button id="file" name="file" onClick={() => handleOpenWidget()}>
+          {" "}
+          Upload file
+        </button>
         <div>
           <button type="" onClick={handleSubmit}>
             Save

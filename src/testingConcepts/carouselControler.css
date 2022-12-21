@@ -1,0 +1,16 @@
+.carousel-control{
+    border: none;
+    display: inline-block;
+    position: absolute;
+    top: calc(50%-25px);
+    height: 50px;
+    width: 50px;
+}
+
+.left{
+    left: 232px;
+}
+
+.rigth{
+    right: 232px;
+}

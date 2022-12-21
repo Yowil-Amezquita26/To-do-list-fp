@@ -4,22 +4,31 @@ import "../../components/loading/loading.css";
 import "../../styles/form.css";
 import "../../components/task/details/details.css";
 import "../../components/task/addTicket/AddTicket.css";
-import { getUser } from "../../hooks/getUser";
 import AddTickets from "../../components/task/addTicket/AddTickets";
 import Details from "../../components/task/details/Details";
 import Loading from "../../components/loading/Loading";
 import Tickets from "../../components/task/Tickets";
 import { useEffect } from "react";
 import Layout from "../../components/Layout";
+import Gallery from "../../components/imageGallery/Gallery";
+import { useForm } from "../../form/useForm";
 
 export default function Task({ logedin, setUpdate }) {
   const [openModal, setOpenModal] = useState(false);
   const [openDetails, setOpenDetails] = useState(false);
+  const [openGallery, setOpenGallery] = useState(false);
   const [task, setTask] = useState({});
   const [user, setUser] = useState(null);
   const [isPending, setisPending] = useState(true);
   const [error, setError] = useState(null);
   const storage = window.localStorage;
+  const {
+    form,
+    setForm,
+    handleInputChange,
+    handleOpenWidget,
+    updateFormDetails,
+  } = useForm();
   let url = `https://to-do-list-be.onrender.com/api/user/${storage.getItem(
     "UserEmail"
   )}`;
@@ -39,7 +48,7 @@ export default function Task({ logedin, setUpdate }) {
         setUser(json);
         setisPending(false);
         setError({ err: false });
-        setUpdate(false)
+        setUpdate(false);
       } catch (err) {
         setisPending(true);
         setError(err);
@@ -73,7 +82,15 @@ export default function Task({ logedin, setUpdate }) {
           </button>
         </section>
         {openModal && (
-          <AddTickets closeModal={setOpenModal} isPending={setisPending} setUpdate={setUpdate} />
+          <AddTickets
+            closeModal={setOpenModal}
+            isPending={setisPending}
+            setUpdate={setUpdate}
+            form={form}
+            setForm={setForm}
+            handleOpenWidget={handleOpenWidget}
+            handleInputChange={handleInputChange}
+          />
         )}
         {openDetails && (
           <Details
@@ -82,6 +99,7 @@ export default function Task({ logedin, setUpdate }) {
             isPending={setisPending}
           />
         )}
+        {openGallery && <Gallery ticket={task} closeModal={setOpenGallery} />}
         <section className="contentTask">
           <div className="Tickets">
             <h2 className="statusHearder">
@@ -95,6 +113,7 @@ export default function Task({ logedin, setUpdate }) {
                   tickets={tickets}
                   OpenDetails={setOpenDetails}
                   setTask={setTask}
+                  OpenGallery={setOpenGallery}
                 />
               ))}
           </div>
@@ -110,6 +129,7 @@ export default function Task({ logedin, setUpdate }) {
                   tickets={tickets}
                   OpenDetails={setOpenDetails}
                   setTask={setTask}
+                  OpenGallery={setOpenGallery}
                 />
               ))}
           </div>
@@ -124,7 +144,7 @@ export default function Task({ logedin, setUpdate }) {
                   key={`Done${index}`}
                   tickets={tickets}
                   OpenDetails={setOpenDetails}
-                  
+                  OpenGallery={setOpenGallery}
                   setTask={setTask}
                 />
               ))}

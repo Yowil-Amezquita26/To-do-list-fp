@@ -1,8 +1,8 @@
-export const deleteTicket = (userId, ticketId, { closeModal}) => {
+export const deleteTicket = async (userId, ticketId, { closeModal}) => {
   const storage = window.localStorage;
   storage.setItem("deleted", "false");
 
-  fetch(
+  await fetch(
     `https://to-do-list-be.onrender.com/api/user/delete/${userId}/${ticketId}`,
     {
       method: "DELETE",
