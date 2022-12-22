@@ -1,8 +1,10 @@
 import React from "react";
 import "./gallery.css";
-import Carousel from "../../testingConcepts/Carousel";
+import Carousel from "../../carousel/Carousel";
+import CarouselControler from "../../carousel/CarouselControler";
 function Gallery({ ticket, closeModal }) {
   console.log("object");
+
   return (
     <>
       <section className="modalBackground">
@@ -10,9 +12,7 @@ function Gallery({ ticket, closeModal }) {
           <div className="closeButton">
             <button onClick={() => closeModal(false)}> X </button>
           </div>
-          <div className="carouselContainer">
-            <Carousel slides={ticket.images}/>
-          </div>
+          <Carousel slides={ticket.images} />
         </div>
       </section>
     </>

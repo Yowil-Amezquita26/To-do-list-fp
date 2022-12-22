@@ -3,7 +3,6 @@ import Loading from "../loading/Loading";
 import Tickets from "../task/Tickets";
 import TicketData from "./TicketData";
 import "./profile.css";
-import Carousel from "../../testingConcepts/Carousel";
 
 const Profile = ({ LogUser }) => {
   const { user, isAuthenticated } = useAuth0();
