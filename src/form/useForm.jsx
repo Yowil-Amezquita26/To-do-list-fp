@@ -9,16 +9,17 @@ export const useForm = () => {
     title: "",
     desciption: "",
     status: "Not Done",
-    images:[{
-      public_id:"cld-sample-5",
-      url:"https://res.cloudinary.com/dyfyklgpd/image/upload/v1670937567/cld-sample-5.jpg"
-    }]
+    images: [
+      {
+        public_id: "cld-sample-5",
+        url: "https://res.cloudinary.com/dyfyklgpd/image/upload/v1670937567/cld-sample-5.jpg",
+      },
+    ],
   });
 
   // Handle inputs
-  
+
   const updateFormDetails = (ticket) => {
-    console.log(ticket,"hello");
     // setForm({...form,
     //   title: ticket.title,
     //   desciption: ticket.desciption,
@@ -45,12 +46,10 @@ export const useForm = () => {
       },
       (error, result) => {
         if (!error && result && result.event === "success") {
-          console.log("Done! Here is the image info: ", result.info);
           form.images.push({
             public_id: result.info.public_id,
             url: result.info.url,
           });
-          console.log(form);
         }
       }
     );

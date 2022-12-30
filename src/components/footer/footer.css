@@ -1,6 +1,9 @@
 .homeFooter {
-  width: 100vw;
   text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
   background-color: rgb(66, 66, 248);;
 }
 .footerContent {

@@ -4,17 +4,15 @@ import { useParams, useLocation } from "react-router-dom";
 import Layout from "../components/Layout";
 import Loading from "../components/loading/Loading";
 import Profile from "../components/profile/Profile";
+import { authenticate } from "../services/authenticate";
 
-const UserPage = ({ logedin, logUser, setUpdate}) => {
+const UserPage = ({ logedin, logUser, setUpdate }) => {
   // const [LogUser, setLogUser] = useState(null);
   // const {type} =useParams();
   // const location = useLocation()
   // const stateParamVal = location.state.stateParam
-  // console.log(stateParamVal);
-  setUpdate(true)
-  console.log(logedin);
-  console.log(logUser);
-
+  setUpdate(true);
+  authenticate();
   return (
     <Layout logedin>
       <Profile LogUser={logUser} />

@@ -1,7 +1,6 @@
 .mainContent {
-  min-width: 100vw;
-  min-height: 100vh;
-  margin-top: 4rem;
+  /* width: 100vw; */
+  position: relative;
 }
 .content {
   display: flex;

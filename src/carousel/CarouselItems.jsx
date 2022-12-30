@@ -3,6 +3,7 @@ import React from "react";
 function CarouselItems({ slide, startSlideTimer, stopSlideTimer }) {
   if (slide != "") {
     return (
+      <>
       <div
         className="carousel-item"
         onMouseEnter={stopSlideTimer}
@@ -10,6 +11,7 @@ function CarouselItems({ slide, startSlideTimer, stopSlideTimer }) {
       >
         <img className="imageGallery" src={slide} alt="" />
       </div>
+      </>
     );
   }
 }

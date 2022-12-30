@@ -12,6 +12,7 @@ import { useEffect } from "react";
 import Layout from "../../components/Layout";
 import Gallery from "../../components/imageGallery/Gallery";
 import { useForm } from "../../form/useForm";
+import { authenticate } from "../../services/authenticate";
 
 export default function Task({ logedin, setUpdate }) {
   const [openModal, setOpenModal] = useState(false);
@@ -32,8 +33,10 @@ export default function Task({ logedin, setUpdate }) {
   let url = `https://to-do-list-be.onrender.com/api/user/${storage.getItem(
     "UserEmail"
   )}`;
+  authenticate();
   useEffect(() => {
     const User = async (url) => {
+      
       try {
         let res = await fetch(url);
         if (!res.ok) {
@@ -44,7 +47,7 @@ export default function Task({ logedin, setUpdate }) {
           };
         }
         let json = await res.json();
-        storage.setItem("UserId", json.userDB._id);
+        // storage.setItem("UserId", json.userDB._id);
         setUser(json);
         setisPending(false);
         setError({ err: false });
@@ -60,13 +63,19 @@ export default function Task({ logedin, setUpdate }) {
         "UserEmail"
       )}`
     );
-  }, [openModal, openDetails]);
+  }, [openModal, openDetails, openGallery]);
 
   // const { user, isPending, error } = getUser(url);
   if (isPending) {
     return <Loading />;
   }
-
+  if(user.messaje == "No User Found"){
+    return(
+      <>
+        <h1>No Data Found</h1>
+      </>
+    )
+  }
   return (
     <>
       <Layout logedin>

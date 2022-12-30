@@ -3,8 +3,6 @@ import "./gallery.css";
 import Carousel from "../../carousel/Carousel";
 import CarouselControler from "../../carousel/CarouselControler";
 function Gallery({ ticket, closeModal }) {
-  console.log("object");
-
   return (
     <>
       <section className="modalBackground">
@@ -12,7 +10,7 @@ function Gallery({ ticket, closeModal }) {
           <div className="closeButton">
             <button onClick={() => closeModal(false)}> X </button>
           </div>
-          <Carousel slides={ticket.images} />
+          <Carousel slides={ticket.images} closeModal={closeModal} />
         </div>
       </section>
     </>

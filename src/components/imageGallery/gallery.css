@@ -2,10 +2,15 @@
   display: flex;
   flex-direction: row;
   width: 100%;
+  justify-content: center;
 }
 
 .imageGallery {
   width: auto;
   height: 20rem;
+}
 
+.imageDelete {
+  position: absolute;
+  top: 28rem;
 }

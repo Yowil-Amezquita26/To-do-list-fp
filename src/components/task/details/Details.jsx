@@ -3,11 +3,7 @@ import { deleteImages } from "../../../services/deleteImages";
 import { deleteTicket } from "../../../services/deleteTicket";
 import { editTicket } from "../../../services/editTicket";
 
-const Details = ({
-  closeModal,
-  ticket,
-  isPending,
-}) => {
+const Details = ({ closeModal, ticket, isPending }) => {
   const storage = window.localStorage;
   const [edit, setEdit] = useState(false);
   const cloudName = import.meta.env.VITE_REACT_APP_CLOUDNAME;
@@ -45,12 +41,10 @@ const Details = ({
       },
       (error, result) => {
         if (!error && result && result.event === "success") {
-          console.log("Done! Here is the image info: ", result.info);
           details.images.push({
             public_id: result.info.public_id,
             url: result.info.url,
           });
-          console.log(event);
         }
       }
     );
@@ -106,7 +100,11 @@ const Details = ({
                 </button>
               </div>
             </form>
-            <button id="file" name="file" onClick={() => handleOpenWidget({details})}>
+            <button
+              id="file"
+              name="file"
+              onClick={() => handleOpenWidget({ details })}
+            >
               {" "}
               Upload file
             </button>

@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import CarouselItems from "./CarouselItems";
 import "./carousel.css";
 import CarouselControler from "./CarouselControler";
+import { deleteImage } from "../services/deleteImage";
 
-function Carousel({ slides }) {
+function Carousel({ slides, closeModal }) {
   const images = slides;
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideInterval = useRef();
@@ -41,6 +42,10 @@ function Carousel({ slides }) {
     return () => stopSlideTimer();
   }, []);
 
+  const deleteSlide=(images,currentImage)=>{
+    deleteImage(images[currentImage], closeModal)
+  }
+
   return (
     <>
       <div className="carouselContainer">
@@ -49,17 +54,20 @@ function Carousel({ slides }) {
             className="carousel-inner"
             style={{ transform: `translateX(${-currentSlide * 100}%)` }}
           >
-            {images.map((slide, index) => (
+            {images.map((slide) => (
+              <>
               <CarouselItems
                 slide={slide.url}
-                key={index}
+                key={slide._id}
                 startSlideTimer={startSlideTimer}
                 stopSlideTimer={stopSlideTimer}
               />
+              </>
             ))}
           </div>
         </div>
       </div>
+      <button className="imageDelete" onClick={()=>deleteSlide(images,currentSlide)}>Delete image</button>
       <CarouselControler prev={prev} next={next} slides={slides} currentIndex ={currentSlide}/>
     </>
   );

@@ -6,10 +6,9 @@ import { registerUser } from "../services/registerUser";
 import { useState } from "react";
 
 const HomePage = ({ logedin }) => {
-  const [register, setRegister] = useState(false);
-  registerUser("https://to-do-list-be.onrender.com/api/user/register", {
-    setRegister,
-  });
+  registerUser("https://to-do-list-be.onrender.com/api/user/register")
+
+
 
   return (
     <>

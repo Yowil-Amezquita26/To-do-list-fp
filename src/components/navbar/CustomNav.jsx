@@ -18,43 +18,12 @@ function toggleBurguerMenu(e) {
 
 const CustomNav = () => {
   const { user, isAuthenticated } = useAuth0();
-  const [LogUser, setLogUser] = useState(null);
-  const [isPending, setisPending] = useState(true);
-  const [error, setError] = useState(null);
-  // useEffect(() => {
-  //   const User = async (url) => {
-  //     try {
-  //       let res = await fetch(url);
-  //       if (!res.ok) {
-  //         throw {
-  //           err: true,
-  //           status: res.status,
-  //           statusText: !res.statusText ? "Ocurrio un error" : res.statusText,
-  //         };
-  //       }
-  //       let json = await res.json();
-  //       console.log(json.userDB.email);
-  //       // storage.setItem("UserId", json.userDB._id);
-  //       setLogUser(json);
-  //       setisPending(false);
-  //       setError({ err: false });
-  //     } catch (err) {
-  //       setisPending(true);
-  //       setError(err);
-  //     }
-  //   };
-  //   if (isAuthenticated) {
-  //     User(`https://to-do-list-be.onrender.com/api/user/${user.email}`);
-  //   }
-  // }, []);
-  // console.log(LogUser);
   return (
     <>
       <section className="customNavBar">
         <div className="titleContainer">
           <h2 className="Title">To-do-list</h2>
         </div>
-        {isAuthenticated && (
           <>
             <div className="rigthContainer" id="rigthContainer">
               <label htmlFor="menuCheck" className="bar ">
@@ -76,6 +45,8 @@ const CustomNav = () => {
                       <button>Home</button>
                     </Link>
 
+                    {isAuthenticated &&(
+                    <>
                     <Link
                       to={{
                         pathname: "/user-page/data",
@@ -88,6 +59,8 @@ const CustomNav = () => {
                     <Link to={"/task"} className={"MainButtons"}>
                       <button>Task</button>
                     </Link>
+                    </>
+                    )}
                     <LoginButton />
                     <LogoutButton />
                   </ul>
@@ -95,7 +68,6 @@ const CustomNav = () => {
               </div>
             </div>
           </>
-        )}
       </section>
     </>
   );
