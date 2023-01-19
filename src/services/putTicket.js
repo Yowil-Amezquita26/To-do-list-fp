@@ -1,7 +1,6 @@
-export const putTicket = (data, { closeModal }, { isPending }, {setUpdate}) => {
+const putTicket = async function (data) {
   const storage = window.localStorage;
-  // storage.setItem("added", false);
-  fetch(
+  let result = await fetch(
     `https://to-do-list-be.onrender.com/api/user/${storage.getItem(
       "UserId"
     )}/new-ticket`,
@@ -17,13 +16,13 @@ export const putTicket = (data, { closeModal }, { isPending }, {setUpdate}) => {
     .then((response) => response.json())
     .then((data) => {
       // storage.setItem("added", true);
-      closeModal(false);
-      isPending(true);
-      setUpdate(true)
-      window.location.reload();
+      return "success"
       // Handle data
     })
     .catch((err) => {
-      console.log(err.message);
+      return err.messaje
     });
+    return result
 };
+
+export default putTicket

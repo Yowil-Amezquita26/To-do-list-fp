@@ -18,11 +18,13 @@ export default function Task({ logedin, setUpdate }) {
   const [openModal, setOpenModal] = useState(false);
   const [openDetails, setOpenDetails] = useState(false);
   const [openGallery, setOpenGallery] = useState(false);
+  const [newData, setNewData] = useState(false);
   const [task, setTask] = useState({});
   const [user, setUser] = useState(null);
   const [isPending, setisPending] = useState(true);
   const [error, setError] = useState(null);
   const storage = window.localStorage;
+
   const {
     form,
     setForm,
@@ -36,7 +38,6 @@ export default function Task({ logedin, setUpdate }) {
   authenticate();
   useEffect(() => {
     const User = async (url) => {
-      
       try {
         let res = await fetch(url);
         if (!res.ok) {
@@ -63,18 +64,28 @@ export default function Task({ logedin, setUpdate }) {
         "UserEmail"
       )}`
     );
-  }, [openModal, openDetails, openGallery]);
-
+    if (storage.getItem("currentGallery") != "") {
+      // user.userDB.tickets.map(ticket =>{
+      // })
+    }
+    if (user != null) {
+      user.userDB.tickets.map((ticket) => {
+        if (ticket._id == storage.getItem("currentGallery")) {
+          setTask(ticket);
+        }
+      });
+    }
+  }, [openModal, openDetails, openGallery, newData]);
   // const { user, isPending, error } = getUser(url);
   if (isPending) {
     return <Loading />;
   }
-  if(user.messaje == "No User Found"){
-    return(
+  if (user.messaje == "No User Found") {
+    return (
       <>
         <h1>No Data Found</h1>
       </>
-    )
+    );
   }
   return (
     <>
@@ -108,7 +119,13 @@ export default function Task({ logedin, setUpdate }) {
             isPending={setisPending}
           />
         )}
-        {openGallery && <Gallery ticket={task} closeModal={setOpenGallery} />}
+        {openGallery && (
+          <Gallery
+            ticket={task}
+            closeModal={setOpenGallery}
+            newData={setNewData}
+          />
+        )}
         <section className="contentTask">
           <div className="Tickets">
             <h2 className="statusHearder">

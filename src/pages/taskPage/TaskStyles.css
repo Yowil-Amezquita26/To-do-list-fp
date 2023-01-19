@@ -6,7 +6,7 @@
 }
 
 .statusHearder{
-  
+  width: 80px;
 }
 
 .ticketImage{
@@ -36,8 +36,15 @@
   flex-direction: column;
 }
 
+@media screen and (min-width: 950px) {
+  .Tickets {
+    width: 300px;
+  }
+}
+
 @media screen and (max-width: 950px) {
   .Tickets {
     flex-direction: row;
+    height: 160px;
   }
 }

@@ -1,8 +1,8 @@
-export const deleteTicket = async (userId, ticketId, { closeModal}) => {
+const deleteTicket = async function(userId, ticketId) {
   const storage = window.localStorage;
   storage.setItem("deleted", "false");
 
-  await fetch(
+  let result = await fetch(
     `https://to-do-list-be.onrender.com/api/user/delete/${userId}/${ticketId}`,
     {
       method: "DELETE",
@@ -11,9 +11,13 @@ export const deleteTicket = async (userId, ticketId, { closeModal}) => {
     .then((response) => response.json())
     .then((data) => {
       storage.setItem("deleted", "true");
-      closeModal(false);
+      return "success"
       // window.location.reload();
     })
     .catch((err) => {
+      return err
     });
+    return result
 };
+
+export default deleteTicket

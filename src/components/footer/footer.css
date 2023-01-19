@@ -1,10 +1,10 @@
 .homeFooter {
   text-align: center;
-  position: absolute;
   bottom: 0;
   width: 100%;
-  height: 2.5rem;
   background-color: rgb(66, 66, 248);;
+  height: 50px;
+  clear: both;
 }
 .footerContent {
   margin-top: auto;

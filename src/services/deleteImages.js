@@ -1,5 +1,4 @@
 export const deleteImages = async (ticket) => {
-  const storage = window.localStorage;
   const images = [];
   ticket.images.map((image) => {
     images.push(image.public_id);

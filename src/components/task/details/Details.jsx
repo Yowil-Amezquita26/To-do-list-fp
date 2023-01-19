@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { deleteImages } from "../../../services/deleteImages";
-import { deleteTicket } from "../../../services/deleteTicket";
-import { editTicket } from "../../../services/editTicket";
+import deleteTicket from "../../../services/deleteTicket"
+import editTicket from "../../../services/editTicket";
+
 
 const Details = ({ closeModal, ticket, isPending }) => {
   const storage = window.localStorage;
@@ -20,17 +21,22 @@ const Details = ({ closeModal, ticket, isPending }) => {
       [event.target.name]: event.target.value,
     });
   };
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    editTicket(details, ticket._id, { closeModal, isPending });
+    let result = await editTicket(details, ticket._id);
+    if(result == "success"){
+      closeModal(false)
+      isPending(true)
+    }
+    { closeModal, isPending }
   };
-  const handleDelete = (event) => {
+  const handleDelete = async (event) => {
     event.preventDefault();
     deleteImages(ticket);
-    deleteTicket(storage.getItem("UserId"), ticket._id, {
-      closeModal,
-      isPending,
-    });
+    let result = await deleteTicket(storage.getItem("UserId"), ticket._id);
+    if (result == "success") {
+      closeModal(false);
+    }
   };
 
   const handleOpenWidget = (event) => {

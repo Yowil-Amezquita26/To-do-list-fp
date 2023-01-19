@@ -1,8 +1,8 @@
-export const editTicket = (data, ticketId, { closeModal, isPending }) => {
+const editTicket = async function(data, ticketId) {
   const storage = window.localStorage;
   storage.setItem("edited", "false");
 
-  fetch(
+  let result = await fetch(
     `https://to-do-list-be.onrender.com/api/user/edit/${storage.getItem(
       "UserId"
     )}/${ticketId}`,
@@ -18,11 +18,13 @@ export const editTicket = (data, ticketId, { closeModal, isPending }) => {
     .then((response) => response.json())
     .then((data) => {
       storage.setItem("edited", "true");
-      closeModal(false);
-
-      isPending(true);
-      // window.location.reload();
+      return "success"
     })
     .catch((err) => {
+      return err
     });
+
+    return result
 };
+
+export default editTicket
