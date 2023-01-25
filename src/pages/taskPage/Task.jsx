@@ -6,13 +6,15 @@ import "../../components/task/details/details.css";
 import "../../components/task/addTicket/AddTicket.css";
 import AddTickets from "../../components/task/addTicket/AddTickets";
 import Details from "../../components/task/details/Details";
-import Loading from "../../components/loading/Loading";
 import Tickets from "../../components/task/Tickets";
 import { useEffect } from "react";
 import Layout from "../../components/Layout";
 import Gallery from "../../components/imageGallery/Gallery";
 import { useForm } from "../../form/useForm";
 import { authenticate } from "../../services/authenticate";
+import { useDrop } from "react-dnd";
+import dropCard from "../../dnd/dropCard";
+import DropZone from "../../dnd/DropZone";
 
 export default function Task({ logedin, setUpdate }) {
   const [openModal, setOpenModal] = useState(false);
@@ -23,6 +25,7 @@ export default function Task({ logedin, setUpdate }) {
   const [user, setUser] = useState(null);
   const [isPending, setisPending] = useState(true);
   const [error, setError] = useState(null);
+
   const storage = window.localStorage;
 
   const {
@@ -78,7 +81,11 @@ export default function Task({ logedin, setUpdate }) {
   }, [openModal, openDetails, openGallery, newData]);
   // const { user, isPending, error } = getUser(url);
   if (isPending) {
-    return <Loading />;
+    return (
+      <>
+        <Layout logedin={false}></Layout>
+      </>
+    );
   }
   if (user.messaje == "No User Found") {
     return (
@@ -127,54 +134,60 @@ export default function Task({ logedin, setUpdate }) {
           />
         )}
         <section className="contentTask">
-          <div className="Tickets">
-            <h2 className="statusHearder">
-              <b>To-do</b>
-            </h2>
-            {user.userDB.tickets
-              .filter((ticket) => ticket.status == "Not Done")
-              .map((tickets, index) => (
-                <Tickets
-                  key={`notDone${index}`}
-                  tickets={tickets}
-                  OpenDetails={setOpenDetails}
-                  setTask={setTask}
-                  OpenGallery={setOpenGallery}
-                />
-              ))}
-          </div>
-          <div className="Tickets">
-            <h2 className="statusHearder">
-              <b>Doing</b>
-            </h2>
-            {user.userDB.tickets
-              .filter((ticket) => ticket.status == "Doing")
-              .map((tickets, index) => (
-                <Tickets
-                  key={`Doing${index}`}
-                  tickets={tickets}
-                  OpenDetails={setOpenDetails}
-                  setTask={setTask}
-                  OpenGallery={setOpenGallery}
-                />
-              ))}
-          </div>
-          <div className="Tickets">
-            <h2 className="statusHearder">
-              <b>Done</b>
-            </h2>
-            {user.userDB.tickets
-              .filter((ticket) => ticket.status == "Done")
-              .map((tickets, index) => (
-                <Tickets
-                  key={`Done${index}`}
-                  tickets={tickets}
-                  OpenDetails={setOpenDetails}
-                  OpenGallery={setOpenGallery}
-                  setTask={setTask}
-                />
-              ))}
-          </div>
+          <DropZone >
+            <div key={"not-done"} className="Tickets not-done">
+              <h2 className="statusHearder">
+                <b>To-do</b>
+              </h2>
+              {user.userDB.tickets
+                .filter((ticket) => ticket.status == "Not Done")
+                .map((tickets, index) => (
+                  <Tickets
+                    key={`notDone${index}`}
+                    tickets={tickets}
+                    OpenDetails={setOpenDetails}
+                    setTask={setTask}
+                    OpenGallery={setOpenGallery}
+                  />
+                ))}
+            </div>
+          </DropZone>
+          <DropZone>
+            <div key={"doing"} name="doing" className="Tickets doing">
+              <h2 className="statusHearder">
+                <b>Doing</b>
+              </h2>
+              {user.userDB.tickets
+                .filter((ticket) => ticket.status == "Doing")
+                .map((tickets, index) => (
+                  <Tickets
+                    key={`Doing${index}`}
+                    tickets={tickets}
+                    OpenDetails={setOpenDetails}
+                    setTask={setTask}
+                    OpenGallery={setOpenGallery}
+                  />
+                ))}
+            </div>
+          </DropZone>
+          <DropZone >
+            <div key={"done"} className="Tickets done">
+              <h2 className="statusHearder">
+                <b>Done</b>
+              </h2>
+              {user.userDB.tickets
+                .filter((ticket) => ticket.status == "Done")
+                .map((tickets, index) => (
+                  <Tickets
+                    key={`Done${index}`}
+                    tickets={tickets}
+                    OpenDetails={setOpenDetails}
+                    OpenGallery={setOpenGallery}
+                    setTask={setTask}
+                  />
+                ))}
+            </div>
+          </DropZone>
         </section>
       </Layout>
     </>

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { putTicket } from "../services/putTicket";
 import editTicket from "../services/editTicket";
 
 export const useForm = () => {

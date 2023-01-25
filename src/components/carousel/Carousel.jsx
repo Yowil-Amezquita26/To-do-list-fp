@@ -66,6 +66,7 @@ function Carousel({ slides, closeModal, newData }) {
       <div className="carouselContainer">
         <div className="carousel">
           <div
+            key={`Slide#${currentSlide}`}
             className="carousel-inner"
             style={{ transform: `translateX(${-currentSlide * 100}%)` }}
           >

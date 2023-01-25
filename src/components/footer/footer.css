@@ -1,9 +1,10 @@
 .homeFooter {
   text-align: center;
   bottom: 0;
-  width: 100%;
+  /* width: 100vw; */
   background-color: rgb(66, 66, 248);;
   height: 50px;
+
   clear: both;
 }
 .footerContent {
