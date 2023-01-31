@@ -24,6 +24,10 @@ export default function Task({ logedin, setUpdate }) {
   const [task, setTask] = useState({});
   const [user, setUser] = useState(null);
   const [isPending, setisPending] = useState(true);
+  const [tickets, setTickets] = useState();
+  const [ticketNotDone, setTicketNotDone] = useState([]);
+  const [ticketDoing, setTicketDoing] = useState();
+  let ticketDone;
   const [error, setError] = useState(null);
 
   const storage = window.localStorage;
@@ -53,9 +57,11 @@ export default function Task({ logedin, setUpdate }) {
         let json = await res.json();
         // storage.setItem("UserId", json.userDB._id);
         setUser(json);
+        setTickets(json.userDB.tickets);
         setisPending(false);
         setError({ err: false });
         setUpdate(false);
+        setNewData(false)
       } catch (err) {
         setisPending(true);
         setError(err);
@@ -94,6 +100,9 @@ export default function Task({ logedin, setUpdate }) {
       </>
     );
   }
+  ticketDone = user.userDB.tickets.filter(
+    (tickets) => tickets.status == "Done"
+  );
   return (
     <>
       <Layout logedin>
@@ -134,7 +143,7 @@ export default function Task({ logedin, setUpdate }) {
           />
         )}
         <section className="contentTask">
-          <DropZone >
+          <DropZone newData={setNewData}>
             <div key={"not-done"} className="Tickets not-done">
               <h2 className="statusHearder">
                 <b>To-do</b>
@@ -152,7 +161,7 @@ export default function Task({ logedin, setUpdate }) {
                 ))}
             </div>
           </DropZone>
-          <DropZone>
+          <DropZone newData={setNewData}>
             <div key={"doing"} name="doing" className="Tickets doing">
               <h2 className="statusHearder">
                 <b>Doing</b>
@@ -170,7 +179,7 @@ export default function Task({ logedin, setUpdate }) {
                 ))}
             </div>
           </DropZone>
-          <DropZone >
+          <DropZone newData={setNewData}>
             <div key={"done"} className="Tickets done">
               <h2 className="statusHearder">
                 <b>Done</b>

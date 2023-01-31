@@ -1,7 +1,7 @@
 const editTicket = async function(data, ticketId) {
   const storage = window.localStorage;
+  const token = import.meta.VITE_REACT_APP_SECRET_TOKEN
   storage.setItem("edited", "false");
-
   let result = await fetch(
     `https://to-do-list-be.onrender.com/api/user/edit/${storage.getItem(
       "UserId"
@@ -11,8 +11,10 @@ const editTicket = async function(data, ticketId) {
       headers: {
         Accept: "application/json",
         "Content-type": "application/json",
+        Secret:token
       },
       body: JSON.stringify(data),
+      query:{secret:"hello amiguito"}
     }
   )
     .then((response) => response.json())

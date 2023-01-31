@@ -3,6 +3,7 @@ import { useEffect } from "react";
 
 export const registerUser = (url) => {
   const { user, isAuthenticated } = useAuth0();
+  const token = import.meta.VITE_REACT_APP_SECRET_TOKEN
   const storage = window.localStorage;
   if (isAuthenticated) {
     fetch(url, {
@@ -10,6 +11,7 @@ export const registerUser = (url) => {
       headers: {
         Accept: "application/json",
         "Content-type": "application/json",
+        Secret:token
       },
       body: JSON.stringify({
         name: user.given_name,

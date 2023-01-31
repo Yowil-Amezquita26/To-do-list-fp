@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useDrop } from "react-dnd";
 import dropCard from "./dropCard";
 
-function DropZone({ children }) {
+function DropZone({ children, newData }) {
   let currentContainer = useRef();
   let zone = ""
   const [{ isOver, isOverCurrent, dropOver }, drop] = useDrop(() => ({
@@ -14,13 +14,11 @@ function DropZone({ children }) {
     drop: (item) => {
       zone=currentContainer.current.children[0].id
       dropCard(item, zone);
-      // console.log(currentContainer.current.children[0].id);
-      // console.log(currentContainer.current.children);
+      newData(true)
     },
-  }));
+  })); 
 const handleDropped = (e) =>{
 }
-  console.log();
   return (
     <>
       <div onMouseEnter={handleDropped()} ref={currentContainer}>
