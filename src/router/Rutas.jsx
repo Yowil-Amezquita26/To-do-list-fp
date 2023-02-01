@@ -30,6 +30,7 @@ export default function Rutas() {
         let json = await res.json();
         storage.setItem("UserId", json.userDB._id);
         storage.setItem("UserEmail", user.email);
+        storage.setItem("Logedin", true)
         setLogUser(json);
         setisPending(false);
         setError({ err: false });
@@ -50,17 +51,17 @@ export default function Rutas() {
         <Route
           exact
           path="/"
-          element={<LandingPage logedin={isAuthenticated} />}
+          element={<LandingPage logedin={storage.getItem("Logedin")} />}
         ></Route>
         <Route
           path="/home"
-          element={<HomePage logedin={isAuthenticated} />}
+          element={<HomePage logedin={storage.getItem("Logedin")} />}
         ></Route>
         <Route
           path="/user-page/:type"
           element={
             <UserPage
-              logedin={isPending}
+              logedin={storage.getItem("Logedin")}
               logUser={LogUser}
               setUpdate={setUpdate}
             />

@@ -4,7 +4,7 @@ import Layout from "../components/Layout";
 function LandingPage({ logedin }) {
   return (
     <>
-      <Layout logedin>
+      <Layout logedin site={LandingPage}>
         <section className="landingContent">
           <div>LandingPage</div>
           <LoginButton />

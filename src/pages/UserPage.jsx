@@ -14,7 +14,7 @@ const UserPage = ({ logedin, logUser, setUpdate }) => {
   setUpdate(true);
   authenticate();
   return (
-    <Layout logedin>
+    <Layout logedin site={"Profile"}>
       <Profile LogUser={logUser} />
     </Layout>
   );

@@ -8,11 +8,9 @@ import { useState } from "react";
 const HomePage = ({ logedin }) => {
   registerUser("https://to-do-list-be.onrender.com/api/user/register")
 
-
-
   return (
     <>
-      <Layout logedin>
+      <Layout logedin site={"HomePage"}>
         <section>
           <article className="content">
             <h1>HomePage</h1>

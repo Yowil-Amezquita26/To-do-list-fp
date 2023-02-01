@@ -8,9 +8,7 @@ export const authenticate = () => {
   if(isAuthenticated){
 
     storage.setItem('isLogedin',true)
-  }
-
-  if (storage.getItem('isLogedin') == false) {
-    navigate("/home");
+  }else{
+    navigate('/home')
   }
 };

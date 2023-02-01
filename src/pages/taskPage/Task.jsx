@@ -11,10 +11,11 @@ import { useEffect } from "react";
 import Layout from "../../components/Layout";
 import Gallery from "../../components/imageGallery/Gallery";
 import { useForm } from "../../form/useForm";
-import { authenticate } from "../../services/authenticate";
+
 import { useDrop } from "react-dnd";
 import dropCard from "../../dnd/dropCard";
 import DropZone from "../../dnd/DropZone";
+import { authenticate } from "../../services/authenticate";
 
 export default function Task({ logedin, setUpdate }) {
   const [openModal, setOpenModal] = useState(false);
@@ -31,6 +32,7 @@ export default function Task({ logedin, setUpdate }) {
   const [error, setError] = useState(null);
 
   const storage = window.localStorage;
+  storage.setItem("Logedin", false)
 
   const {
     form,
@@ -67,8 +69,7 @@ export default function Task({ logedin, setUpdate }) {
         setError(err);
       }
     };
-
-    User(
+      User(
       `https://to-do-list-be.onrender.com/api/user/${storage.getItem(
         "UserEmail"
       )}`
@@ -89,7 +90,7 @@ export default function Task({ logedin, setUpdate }) {
   if (isPending) {
     return (
       <>
-        <Layout logedin={false}></Layout>
+        <Layout logedin={false} site={"Task"}></Layout>
       </>
     );
   }
@@ -105,7 +106,7 @@ export default function Task({ logedin, setUpdate }) {
   );
   return (
     <>
-      <Layout logedin>
+      <Layout logedin site={"Task"}>
         <section className="taskHeader">
           <h2>Tasks</h2>
           <button
