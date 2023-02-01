@@ -31,7 +31,7 @@ const Profile = ({ LogUser }) => {
                 You have {LogUser.userDB.tickets.length} task
               </label>
               <TicketData tickets={LogUser.userDB.tickets} />
-              <div className="task">
+              <div className="viewTask">
                 {LogUser.userDB.tickets
                   .filter((ticket) => ticket.status == "Doing")
                   .map((tickets, index) => (
@@ -42,7 +42,6 @@ const Profile = ({ LogUser }) => {
                   ))}
               </div>
             </div>
-            <h3></h3>
           </section>
           <section>
           </section>

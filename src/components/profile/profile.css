@@ -10,5 +10,7 @@
   margin: 2rem;
   align-items: center;
 }
-.task {
+.viewTask {
+  display: flex;
+  flex-wrap: wrap;
 }
