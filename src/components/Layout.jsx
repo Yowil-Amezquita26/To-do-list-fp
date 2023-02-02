@@ -4,7 +4,6 @@ import Loading from "./loading/Loading";
 import CustomNav from "./navbar/CustomNav";
 
 function Layout({ logedin,site, children }) {
-  console.log(site);
   return (
     <>
       <nav>

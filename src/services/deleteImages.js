@@ -1,6 +1,6 @@
 export const deleteImages = async (ticket) => {
   const images = [];
-  const token = import.meta.VITE_REACT_APP_SECRET_TOKEN
+  const token = import.meta.env.VITE_REACT_APP_SECRET_TOKEN
   ticket.images.map((image) => {
     images.push(image.public_id);
     fetch(
