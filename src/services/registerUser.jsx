@@ -4,7 +4,6 @@ import { useEffect } from "react";
 export const registerUser = (url) => {
   const { user, isAuthenticated } = useAuth0();
   const token = import.meta.VITE_REACT_APP_SECRET_TOKEN
-  const storage = window.localStorage;
   if (isAuthenticated) {
     fetch(url, {
       method: "POST",

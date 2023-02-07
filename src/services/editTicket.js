@@ -18,13 +18,10 @@ const editTicket = async function(data, ticketId) {
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data.messaje);
-      
       storage.setItem("edited", "true");
       return "success"
     })
     .catch((err) => {
-      console.log(err);
       return err
     });
 

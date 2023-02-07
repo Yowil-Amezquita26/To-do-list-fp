@@ -7,7 +7,6 @@ function FileSelector() {
   const [images, setImage] = useState([]);
   const [ImageToRemove, setImageToRemove] = useState(null);
 
-  function handleRemoveImg(imgObj) {}
 
   function handleOpenWidget() {
     var myWidget = window.cloudinary.createUploadWidget(

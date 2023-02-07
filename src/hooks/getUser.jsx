@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export const getUser = (url) => {
   const [logUser, setlogUser] = useState(null);

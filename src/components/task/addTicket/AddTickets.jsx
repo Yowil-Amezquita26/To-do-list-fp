@@ -6,7 +6,6 @@ const AddTickets = ({
   isPending,
   setUpdate,
   form,
-  setform,
   handleOpenWidget,
   handleInputChange,
 }) => {

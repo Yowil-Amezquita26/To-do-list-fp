@@ -1,9 +1,6 @@
 import Layout from "../components/Layout";
-import Loading from "../components/loading/Loading";
-import CustomNav from "../components/navbar/CustomNav";
 import reactLogo from "../assets/react.svg";
 import { registerUser } from "../services/registerUser";
-import { useState } from "react";
 
 const HomePage = ({ logedin }) => {
   registerUser("https://to-do-list-be.onrender.com/api/user/register")

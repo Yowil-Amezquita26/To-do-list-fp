@@ -9,12 +9,3 @@ if (checkbox != null) {
   checkbox.addEventListener("checked", () => {});
 }
 
-// checkbox.addEventListener("change", (e) => {
-//   if (e.target.checked) {
-//   } else {
-//   }
-// });
-// const toggleButton = document.getElementById(".menuCheck");
-
-// toggleButton.addEventListener("click", () => {
-// });

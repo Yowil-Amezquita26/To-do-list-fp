@@ -2,12 +2,9 @@ import React from "react";
 import LoginButton from "../buttons/LoginButton";
 import LogoutButton from "../buttons/LogoutButton";
 import "./CustomNav.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./burguerMenu.css";
-import { getUser } from "../../hooks/getUser";
-import { useEffect } from "react";
-import { useState } from "react";
 
 function toggleBurguerMenu(e) {
   const links = document.getElementById("links");

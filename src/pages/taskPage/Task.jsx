@@ -11,9 +11,6 @@ import { useEffect } from "react";
 import Layout from "../../components/Layout";
 import Gallery from "../../components/imageGallery/Gallery";
 import { useForm } from "../../form/useForm";
-
-import { useDrop } from "react-dnd";
-import dropCard from "../../dnd/dropCard";
 import DropZone from "../../dnd/DropZone";
 import { authenticate } from "../../services/authenticate";
 
@@ -25,10 +22,6 @@ export default function Task({ logedin, setUpdate }) {
   const [task, setTask] = useState({});
   const [user, setUser] = useState(null);
   const [isPending, setisPending] = useState(true);
-  const [tickets, setTickets] = useState();
-  const [ticketNotDone, setTicketNotDone] = useState([]);
-  const [ticketDoing, setTicketDoing] = useState();
-  let ticketDone;
   const [error, setError] = useState(null);
 
   const storage = window.localStorage;
@@ -59,7 +52,6 @@ export default function Task({ logedin, setUpdate }) {
         let json = await res.json();
         // storage.setItem("UserId", json.userDB._id);
         setUser(json);
-        setTickets(json.userDB.tickets);
         setisPending(false);
         setError({ err: false });
         setUpdate(false);
@@ -101,9 +93,6 @@ export default function Task({ logedin, setUpdate }) {
       </>
     );
   }
-  ticketDone = user.userDB.tickets.filter(
-    (tickets) => tickets.status == "Done"
-  );
   return (
     <>
       <Layout logedin site={"Task"}>
