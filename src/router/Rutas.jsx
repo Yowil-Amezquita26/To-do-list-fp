@@ -30,7 +30,7 @@ export default function Rutas() {
         let json = await res.json();
         storage.setItem("UserId", json.userDB._id);
         storage.setItem("UserEmail", user.email);
-        storage.setItem("Logedin", true)
+        storage.setItem("Logedin", true);
         setLogUser(json);
         setisPending(false);
         setError({ err: false });

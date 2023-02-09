@@ -4,25 +4,26 @@ import dropCard from "./dropCard";
 
 function DropZone({ children, newData }) {
   let currentContainer = useRef();
-  let zone = ""
-  const [{ isOver, isOverCurrent, dropOver }, drop] = useDrop(() => ({
+  let zone = "";
+  const [{isOverCurrent}, drop] = useDrop(() => ({
     accept: "card",
     collect: (monitor) => ({
       isOverCurrent: monitor.didDrop(),
-      dropSource: monitor.getDropResult(), 
+      dropSource: monitor.getDropResult(),
     }),
     drop: (item) => {
-      zone=currentContainer.current.children[0].id
+      zone = currentContainer.current.children[0].id;
       dropCard(item, zone);
-      newData(true)
+      newData(true);
     },
-  })); 
-const handleDropped = (e) =>{
-}
+  }));
+  const handleDropped = (e) => {};
   return (
     <>
       <div onMouseEnter={handleDropped()} ref={currentContainer}>
-        <div ref={drop} id={`${children.key}`}>{children}</div>
+        <div ref={drop} id={`${children.key}`}>
+          {children}
+        </div>
       </div>
     </>
   );

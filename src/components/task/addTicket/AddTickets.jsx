@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import putTicket  from "../../../services/putTicket";
+import putTicket from "../../../services/putTicket";
 
 const AddTickets = ({
   closeModal,
@@ -9,13 +9,17 @@ const AddTickets = ({
   handleOpenWidget,
   handleInputChange,
 }) => {
-
   const handleSubmit = async () => {
-    let result = await putTicket(form, { closeModal }, { isPending }, { setUpdate });
-    if (result == "success"){
+    let result = await putTicket(
+      form,
+      { closeModal },
+      { isPending },
+      { setUpdate }
+    );
+    if (result == "success") {
       closeModal(false);
       isPending(true);
-      setUpdate(true)
+      setUpdate(true);
     }
   };
 

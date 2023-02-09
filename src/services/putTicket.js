@@ -1,6 +1,6 @@
 const putTicket = async function (data) {
   const storage = window.localStorage;
-  const token = import.meta.env.VITE_REACT_APP_SECRET_TOKEN
+  const token = import.meta.env.VITE_REACT_APP_SECRET_TOKEN;
   let result = await fetch(
     `https://to-do-list-be.onrender.com/api/user/${storage.getItem(
       "UserId"
@@ -10,7 +10,7 @@ const putTicket = async function (data) {
       headers: {
         Accept: "application/json",
         "Content-type": "application/json",
-        Secret:token
+        Secret: token,
       },
       body: JSON.stringify(data),
     }
@@ -18,13 +18,13 @@ const putTicket = async function (data) {
     .then((response) => response.json())
     .then((data) => {
       // storage.setItem("added", true);
-      return "success"
+      return "success";
       // Handle data
     })
     .catch((err) => {
-      return err.messaje
+      return err.messaje;
     });
-    return result
+  return result;
 };
 
-export default putTicket
+export default putTicket;

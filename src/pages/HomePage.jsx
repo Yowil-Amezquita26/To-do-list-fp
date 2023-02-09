@@ -3,7 +3,7 @@ import reactLogo from "../assets/react.svg";
 import { registerUser } from "../services/registerUser";
 
 const HomePage = ({ logedin }) => {
-  registerUser("https://to-do-list-be.onrender.com/api/user/register")
+  registerUser("https://to-do-list-be.onrender.com/api/user/register");
 
   return (
     <>

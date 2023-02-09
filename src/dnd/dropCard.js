@@ -13,7 +13,6 @@ const dropCard = (card, zone) => {
     card.tickets.status = "Done";
     editTicket(card.tickets, card.tickets._id);
   }
-
-}; 
+};
 
 export default dropCard;

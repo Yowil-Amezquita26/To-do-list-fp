@@ -13,9 +13,6 @@
   /* right: 232px; */
 }
 
-.carousel-indicators {
-}
-
 .carousel-indicator-item {
   width: 15px;
   height: 15px;
@@ -26,6 +23,6 @@
   opacity: 0.2;
 }
 
-.active{
-    opacity: 1;
+.active {
+  opacity: 1;
 }

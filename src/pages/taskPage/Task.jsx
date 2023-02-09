@@ -25,7 +25,7 @@ export default function Task({ logedin, setUpdate }) {
   const [error, setError] = useState(null);
 
   const storage = window.localStorage;
-  storage.setItem("Logedin", false)
+  storage.setItem("Logedin", false);
 
   const {
     form,
@@ -55,13 +55,13 @@ export default function Task({ logedin, setUpdate }) {
         setisPending(false);
         setError({ err: false });
         setUpdate(false);
-        setNewData(false)
+        setNewData(false);
       } catch (err) {
         setisPending(true);
         setError(err);
       }
     };
-      User(
+    User(
       `https://to-do-list-be.onrender.com/api/user/${storage.getItem(
         "UserEmail"
       )}`

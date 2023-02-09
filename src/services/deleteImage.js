@@ -1,5 +1,5 @@
 const deleteImage = async function (currentImg, newData) {
-  const token = import.meta.env.VITE_REACT_APP_SECRET_TOKEN
+  const token = import.meta.env.VITE_REACT_APP_SECRET_TOKEN;
   let result = await fetch(
     `https://to-do-list-be.onrender.com/api/user/delete-image/${currentImg.public_id}/${currentImg._id}`,
     {
@@ -7,7 +7,7 @@ const deleteImage = async function (currentImg, newData) {
       headers: {
         Accept: "application/json",
         "Content-type": "application/json",
-        Secret:token
+        Secret: token,
       },
     }
   )

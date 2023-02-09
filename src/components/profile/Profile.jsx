@@ -43,8 +43,7 @@ const Profile = ({ LogUser }) => {
               </div>
             </div>
           </section>
-          <section>
-          </section>
+          <section></section>
         </>
       )}
     </>

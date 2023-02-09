@@ -3,7 +3,7 @@ import "./gallery.css";
 import Carousel from "../carousel/Carousel";
 function Gallery({ ticket, closeModal, newData }) {
   const storage = window.localStorage;
-  storage.setItem('currentGallery',ticket._id)
+  storage.setItem("currentGallery", ticket._id);
 
   return (
     <>
@@ -12,7 +12,11 @@ function Gallery({ ticket, closeModal, newData }) {
           <div className="closeButton">
             <button onClick={() => closeModal(false)}> X </button>
           </div>
-          <Carousel slides={ticket.images} closeModal={closeModal} newData={newData}/>
+          <Carousel
+            slides={ticket.images}
+            closeModal={closeModal}
+            newData={newData}
+          />
         </div>
       </section>
     </>

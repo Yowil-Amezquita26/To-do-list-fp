@@ -8,4 +8,3 @@ if (buttonToggle != null) {
 if (checkbox != null) {
   checkbox.addEventListener("checked", () => {});
 }
-

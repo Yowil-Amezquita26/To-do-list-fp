@@ -3,8 +3,6 @@ import { useNavigate, Link } from "react-router-dom";
 import { useDrag } from "react-dnd";
 
 function Tickets({ tickets, OpenDetails, setTask, OpenGallery }) {
-  const navigate = useNavigate;
-  const images = tickets.images;
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "card",
     item: { from: tickets.status, tickets },
