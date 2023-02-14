@@ -5,8 +5,9 @@ import { useNavigate } from "react-router-dom";
 const LoginButton = () => {
   const { loginWithRedirect, isAuthenticated } = useAuth0();
   const navigate = useNavigate();
+  const storage = window.localStorage
   return (
-    !isAuthenticated && (
+    !storage.getItem("isLogedin") && (
       <button
         className="MainButtons"
         onClick={() => (loginWithRedirect(), navigate("/home"))}

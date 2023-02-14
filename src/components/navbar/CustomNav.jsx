@@ -14,7 +14,7 @@ function toggleBurguerMenu(e) {
 }
 
 const CustomNav = () => {
-  const { user, isAuthenticated } = useAuth0();
+  const storage = window.localStorage
   return (
     <>
       <section className="customNavBar">
@@ -42,7 +42,7 @@ const CustomNav = () => {
                       <button>Home</button>
                     </Link>
 
-                    {isAuthenticated &&(
+                    {storage.getItem("isLogedin") &&(
                     <>
                     <Link
                       to={{

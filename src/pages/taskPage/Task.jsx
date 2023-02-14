@@ -34,9 +34,6 @@ export default function Task({ logedin, setUpdate }) {
     handleOpenWidget,
     updateFormDetails,
   } = useForm();
-  let url = `https://to-do-list-be.onrender.com/api/user/${storage.getItem(
-    "UserEmail"
-  )}`;
   authenticate();
   useEffect(() => {
     const User = async (url) => {
@@ -50,7 +47,6 @@ export default function Task({ logedin, setUpdate }) {
           };
         }
         let json = await res.json();
-        // storage.setItem("UserId", json.userDB._id);
         setUser(json);
         setisPending(false);
         setError({ err: false });
@@ -66,10 +62,6 @@ export default function Task({ logedin, setUpdate }) {
         "UserEmail"
       )}`
     );
-    if (storage.getItem("currentGallery") != "") {
-      // user.userDB.tickets.map(ticket =>{
-      // })
-    }
     if (user != null) {
       user.userDB.tickets.map((ticket) => {
         if (ticket._id == storage.getItem("currentGallery")) {
@@ -78,7 +70,6 @@ export default function Task({ logedin, setUpdate }) {
       });
     }
   }, [openModal, openDetails, openGallery, newData]);
-  // const { user, isPending, error } = getUser(url);
   if (isPending) {
     return (
       <>

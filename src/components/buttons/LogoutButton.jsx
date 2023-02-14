@@ -5,7 +5,7 @@ const LogoutButton = () => {
   const { logout, isAuthenticated } = useAuth0();
   const storage = window.localStorage;
   return (
-    isAuthenticated && (
+    storage.getItem("isLogedin") && (
       <button
         className="MainButtons"
         onClick={() => {

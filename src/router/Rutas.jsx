@@ -13,7 +13,7 @@ export default function Rutas() {
   const { user, isAuthenticated } = useAuth0();
   const [LogUser, setLogUser] = useState(null);
   const [isPending, setisPending] = useState(true);
-  const [update, setUpdate] = useState(false);
+  const [update, setUpdate] = useState(false); 
   const [error, setError] = useState(null);
   const storage = window.localStorage;
   useEffect(() => {

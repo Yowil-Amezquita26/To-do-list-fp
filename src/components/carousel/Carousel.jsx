@@ -4,8 +4,6 @@ import "./carousel.css";
 import CarouselControler from "./CarouselControler";
 import deleteImage from "../../services/deleteImage";
 
-
-
 function Carousel({ slides, closeModal, newData }) {
   const [gallery, setGallery] = useState(slides);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -44,7 +42,6 @@ function Carousel({ slides, closeModal, newData }) {
   }, []);
 
   const deleteSlide = async(images, currentImage, { setCurrentSlide }, newData) => {
-    // event.preventDefault();
     let result = await deleteImage(
       images[currentImage],
       newData,
@@ -66,7 +63,7 @@ function Carousel({ slides, closeModal, newData }) {
       <div className="carouselContainer">
         <div className="carousel">
           <div
-            key={`Slide#${currentSlide}`}
+            key={`Slide#${currentSlide} {}`}
             className="carousel-inner"
             style={{ transform: `translateX(${-currentSlide * 100}%)` }}
           >

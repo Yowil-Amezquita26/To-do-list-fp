@@ -19,12 +19,6 @@ export const useForm = () => {
   // Handle inputs
 
   const updateFormDetails = (ticket) => {
-    // setForm({...form,
-    //   title: ticket.title,
-    //   desciption: ticket.desciption,
-    //   status: ticket.status,
-    //   images:ticket.images
-    // })
   };
   const handleInputChange = (event) => {
     setForm({

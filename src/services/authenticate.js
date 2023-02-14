@@ -6,7 +6,7 @@ export const authenticate = () => {
   const { isAuthenticated } = useAuth0();
   const navigate = useNavigate();
   if (isAuthenticated) {
-    storage.setItem("isLogedin", true);
+    storage.setItem("isLogedin", true); 
   } else {
     navigate("/home");
   }

@@ -10,7 +10,7 @@ const Profile = ({ LogUser }) => {
   if (LogUser == null) {
     return <Loading />;
   }
-  return (
+  return ( 
     <>
       {isAuthenticated && (
         <>
