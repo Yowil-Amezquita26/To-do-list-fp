@@ -14,7 +14,7 @@ import { useForm } from "../../form/useForm";
 import DropZone from "../../dnd/DropZone";
 import { authenticate } from "../../services/authenticate";
 
-export default function Task({ logedin, setUpdate }) {
+export default function Task({ setUpdate }) {
   const [openModal, setOpenModal] = useState(false);
   const [openDetails, setOpenDetails] = useState(false);
   const [openGallery, setOpenGallery] = useState(false);
@@ -73,7 +73,7 @@ export default function Task({ logedin, setUpdate }) {
   if (isPending) {
     return (
       <>
-        <Layout logedin={false} site={"Task"}></Layout>
+        <Layout  site={"Task"}></Layout>
       </>
     );
   }
@@ -86,7 +86,7 @@ export default function Task({ logedin, setUpdate }) {
   }
   return (
     <>
-      <Layout logedin site={"Task"}>
+      <Layout site={"Task"}>
         <section className="taskHeader">
           <h2>Tasks</h2>
           <button

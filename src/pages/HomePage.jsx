@@ -7,7 +7,7 @@ const HomePage = ({ logedin }) => {
 
   return (
     <>
-      <Layout logedin site={"HomePage"}>
+      <Layout site={"HomePage"}>
         <section>
           <article className="content">
             <h1>HomePage</h1>

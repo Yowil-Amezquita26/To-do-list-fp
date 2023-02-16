@@ -4,10 +4,10 @@ import Tickets from "../task/Tickets";
 import TicketData from "./TicketData";
 import "./profile.css";
 
-const Profile = ( {LogUser} ) => {
+const Profile = ( LogUser ) => {
   const { user, isAuthenticated } = useAuth0();
   console.log(LogUser);
-  if (LogUser.length <= 0) {
+  if (LogUser === null) {
     return <Loading />;
   }
   return ( 

@@ -1,10 +1,10 @@
 import LoginButton from "../components/buttons/LoginButton";
 import Layout from "../components/Layout";
 
-function LandingPage({ logedin }) {
+function LandingPage() {
   return (
     <>
-      <Layout logedin site={LandingPage}>
+      <Layout site={LandingPage}>
         <section className="landingContent">
           <div>LandingPage</div>
           <LoginButton />
