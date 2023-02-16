@@ -6,11 +6,12 @@ const LoginButton = () => {
   const { loginWithRedirect, isAuthenticated } = useAuth0();
   const navigate = useNavigate();
   const storage = window.localStorage
+
   return (
-    !storage.getItem("isLogedin") && (
+    storage.getItem("isLogedin") == "false"&& (
       <button
         className="MainButtons"
-        onClick={() => (loginWithRedirect(), navigate("/home"))}
+        onClick={() => (loginWithRedirect(), navigate("/home"), storage.setItem("isLogedin", true))}
       >
         Login
       </button>

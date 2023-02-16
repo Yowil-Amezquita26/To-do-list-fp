@@ -15,6 +15,7 @@ function toggleBurguerMenu(e) {
 
 const CustomNav = () => {
   const storage = window.localStorage
+  let showButtons=storage.getItem("isLogedin")
   return (
     <>
       <section className="customNavBar">
@@ -42,7 +43,7 @@ const CustomNav = () => {
                       <button>Home</button>
                     </Link>
 
-                    {storage.getItem("isLogedin") &&(
+                    {storage.getItem("isLogedin") =="true" &&(
                     <>
                     <Link
                       to={{
