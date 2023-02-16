@@ -4,10 +4,10 @@ import Tickets from "../task/Tickets";
 import TicketData from "./TicketData";
 import "./profile.css";
 
-const Profile = ({ LogUser }) => {
+const Profile = ( {LogUser} ) => {
   const { user, isAuthenticated } = useAuth0();
-
-  if (LogUser == null) {
+  console.log(LogUser);
+  if (LogUser.length <= 0) {
     return <Loading />;
   }
   return ( 
@@ -17,15 +17,15 @@ const Profile = ({ LogUser }) => {
           <section className="profile">
             <div className="picture">
               <h2>Profile</h2>
-              <img src={`${user.picture}`} alt="" />
+              <img src={`${user?.picture}`} alt="" />
             </div>
-            <div className="userInfo">
+            {/* <div className="userInfo">
               <h3>Name:{LogUser.userDB.name}</h3>
               <h3>Last Name:{LogUser.userDB.last_name}</h3>
               <h3>Email:{LogUser.userDB.email}</h3>
-            </div>
+            </div> */}
           </section>
-          <section className="taskContainer">
+          {/* <section className="taskContainer">
             <div className="task">
               <label htmlFor="task">
                 You have {LogUser.userDB.tickets.length} task
@@ -42,10 +42,10 @@ const Profile = ({ LogUser }) => {
                   ))}
               </div>
             </div>
-          </section>
-          <section></section>
+          </section> */}
         </>
       )}
+      {/* sectetur adipisicing elit. Veniam ex fugiat totam, repellat, dolorem iure exercitationem molestias doloribus illum expedita laudantium quis dignissimos consequatur dolore earum itaque ab quaerat eaque?</h5> */}
     </>
   );
 };

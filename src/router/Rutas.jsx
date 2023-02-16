@@ -11,7 +11,7 @@ import { authenticate } from "../services/authenticate";
 
 export default function Rutas() {
   const { user, isAuthenticated } = useAuth0();
-  const [LogUser, setLogUser] = useState(null);
+  const [LogUser, setLogUser] = useState([]);
   const [isPending, setisPending] = useState(true);
   const [update, setUpdate] = useState(false); 
   const [error, setError] = useState(null);
