@@ -7,10 +7,9 @@ function Layout({ site, children }) {
   const storage = window.localStorage
   return (
     <>
-      <nav>
-        <CustomNav />
-      </nav>
-      {!storage.getItem("Logedin") ? <Loading /> : <main className="mainContent">{children}</main>}
+      <CustomNav />
+      {/* {!storage.getItem("Logedin") ? <Loading /> : <main className="mainContent">{children}</main>} */}
+      <main className="mainContent">{children}</main>
       {site != "Task" ? <CustomFooter /> : ""}
     </>
   );

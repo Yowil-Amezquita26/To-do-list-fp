@@ -48,8 +48,8 @@ export default function Rutas() {
   return (
     <>
       <Routes>
-        <Route exact path="/" element={<LandingPage />}></Route>
-        <Route path="/home" element={<HomePage />}></Route>
+        {/* <Route path="/" element={<LandingPage />}></Route> */}
+        <Route path="/" element={<HomePage />}></Route>
         <Route
           path="/user-page/:type"
           element={<UserPage />}

@@ -2,8 +2,8 @@ import Layout from "../components/Layout";
 import reactLogo from "../assets/react.svg";
 import { registerUser } from "../services/registerUser";
 
-const HomePage = ({ logedin }) => {
-  registerUser("https://to-do-list-be.onrender.com/api/user/register");
+const HomePage = () => {
+  // registerUser("https://to-do-list-be.onrender.com/api/user/register");
 
   return (
     <>

@@ -39,7 +39,7 @@ const CustomNav = () => {
               <div id="links" className="links">
                 <div className="navLinks">
                   <ul className="navButtonContainer">
-                    <Link to={"/home"} className={"MainButtons"}>
+                    <Link to={"/"} className={"MainButtons"}>
                       <button>Home</button>
                     </Link>
 
