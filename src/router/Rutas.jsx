@@ -43,7 +43,7 @@ export default function Rutas() {
     if (isAuthenticated) {
       User(`https://to-do-list-be.onrender.com/api/user/${user.email}`);
     }
-  }, [isAuthenticated, update]);
+  }, [isAuthenticated]);
 
   return (
     <>
