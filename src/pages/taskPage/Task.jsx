@@ -8,7 +8,7 @@ import AddTickets from "../../components/task/addTicket/AddTickets";
 import Details from "../../components/task/details/Details";
 import Tickets from "../../components/task/Tickets";
 import { useEffect } from "react";
-import Layout from "../../components/Layout";
+import Layout from "../../components/Layout/Layout";
 import Gallery from "../../components/imageGallery/Gallery";
 import { useForm } from "../../form/useForm";
 import DropZone from "../../dnd/DropZone";
@@ -73,7 +73,7 @@ export default function Task({ setUpdate }) {
   if (isPending) {
     return (
       <>
-        <Layout  site={"Task"}></Layout>
+        <Layout site={"Task"}></Layout>
       </>
     );
   }
