@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import LoginButton from "../buttons/LoginButton";
 import LogoutButton from "../buttons/LogoutButton";
 import "./CustomNav.css";
@@ -30,8 +30,16 @@ function toggleBurguerMenu(e) {
 const CustomNav = () => {
   // const storage = window.localStorage;
   let showButtons = localStorage.getItem("isLogedin");
-  const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
+  const { loginWithRedirect, isAuthenticated, logout, user, isLoading } =
+    useAuth0();
   const navigate = useNavigate();
+  // useEffect(() => {
+  //   if (isAuthenticated) {
+  //     console.log(user);
+  //     localStorage.setItem("emailAuth0", user?.email);
+  //     localStorage.setItem("isLogedin", true);
+  //   }
+  // }, []);
 
   return (
     <section className="customNavBar">
@@ -44,7 +52,7 @@ const CustomNav = () => {
         <Link to={"/"} className="MainButtons">
           Home
         </Link>
-        {localStorage.getItem("isLogedin") == "true" ? (
+        {isAuthenticated ? (
           <>
             <Link
               to={{
@@ -61,8 +69,8 @@ const CustomNav = () => {
             <button
               className="MainButtons"
               onClick={() => {
-                localStorage.clear,
-                  localStorage.setItem("isLogedin", "false"),
+                localStorage.clear(),
+                  localStorage.setItem("isLogedin", false),
                   logout();
               }}
             >
@@ -70,16 +78,19 @@ const CustomNav = () => {
             </button>
           </>
         ) : (
-          <button
-            className="MainButtons"
-            onClick={() => (
-              loginWithRedirect(),
-              navigate("/home"),
-              localStorage.setItem("isLogedin", true)
-            )}
-          >
-            Login
-          </button>
+          <>
+            <button
+              className="MainButtons"
+              onClick={() => {
+                loginWithRedirect();
+                localStorage.setItem("emailAuth0", user?.email);
+                localStorage.setItem("isLogedin", true);
+                // navigate("/");
+              }}
+            >
+              Login
+            </button>
+          </>
         )}
         {/* </ul> */}
       </nav>

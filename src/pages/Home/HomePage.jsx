@@ -1,9 +1,20 @@
+import { useEffect } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 import Layout from "../../components/Layout/Layout";
 import reactLogo from "../../assets/react.svg";
 import { registerUser } from "../../services/registerUser";
 
 const HomePage = () => {
   // registerUser("https://to-do-list-be.onrender.com/api/user/register");
+  const { isAuthenticated, user  } = useAuth0();
+
+  // useEffect(() => {
+  //   if (isAuthenticated) {
+  //     console.log(user);
+  //     localStorage.setItem("emailAuth0", user?.email);
+  //     localStorage.setItem("isLogedin", true);
+  //   }
+  // }, []);
 
   return (
     <Layout site={"HomePage"}>

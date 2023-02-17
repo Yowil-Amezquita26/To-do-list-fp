@@ -10,7 +10,7 @@ function Layout({ site, children }) {
       <CustomNav />
       {/* {!storage.getItem("Logedin") ? <Loading /> : <main className="mainContent">{children}</main>} */}
       <main className="mainContent">{children}</main>
-      {site != "Task" ? <CustomFooter /> : ""}
+      {site != "Task" ? <CustomFooter /> : null}
     </div>
   );
 }
