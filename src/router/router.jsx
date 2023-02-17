@@ -1,13 +1,9 @@
-import { useAuth0 } from "@auth0/auth0-react";
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import HomePage from "../pages/HomePage";
-import LandingPage from "../pages/LandingPage";
+import React, { useState, useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "../pages/Home/HomePage";
 import Task from "../pages/taskPage/Task";
-import UserPage from "../pages/UserPage";
-import { authenticate } from "../services/authenticate";
+import UserPage from "../pages/User/UserPage";
+// import LandingPage from "../pages/LandingPage";
 
 export default function Rutas() {
   // const { user, isAuthenticated } = useAuth0();

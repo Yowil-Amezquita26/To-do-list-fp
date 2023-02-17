@@ -1,6 +1,6 @@
-import Layout from "../components/Layout/Layout";
-import reactLogo from "../assets/react.svg";
-import { registerUser } from "../services/registerUser";
+import Layout from "../../components/Layout/Layout";
+import reactLogo from "../../assets/react.svg";
+import { registerUser } from "../../services/registerUser";
 
 const HomePage = () => {
   // registerUser("https://to-do-list-be.onrender.com/api/user/register");

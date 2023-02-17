@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 
 export const getUser = (url) => {
-  const [logUser, setlogUser] = useState(null);
+  const [logUser, setlogUser] = useState();
   const [isPending, setisPending] = useState(true);
-  const [error, setError] = useState(null);
-  const storage = window.localStorage;
+  const [error, setError] = useState();
   useEffect(() => {
     const User = async (url) => {
       try {
@@ -17,7 +16,7 @@ export const getUser = (url) => {
           };
         }
         let json = await res.json();
-        storage.setItem("UserId", json.userDB._id);
+        localStorage.setItem("UserId", json.userDB._id);
         setlogUser(json);
         setisPending(false);
         setError({ err: false });
