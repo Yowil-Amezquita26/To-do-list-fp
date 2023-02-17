@@ -49,12 +49,9 @@ export default function Rutas() {
     <>
       <Routes>
         {/* <Route path="/" element={<LandingPage />}></Route> */}
-        <Route path="/" element={<HomePage />}></Route>
-        <Route
-          path="/user-page/:type"
-          element={<UserPage />}
-        ></Route>
-        <Route path="/task" element={<Task />}></Route>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/user-page/:type" element={<UserPage />} />
+        <Route path="/task" element={<Task />} />
       </Routes>
     </>
   );

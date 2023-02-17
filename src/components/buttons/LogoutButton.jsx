@@ -2,21 +2,17 @@ import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const LogoutButton = () => {
-  const { logout} = useAuth0();
-  const storage = window.localStorage;
+  const { logout } = useAuth0();
+  
   return (
-    storage.getItem("isLogedin")=="true" && (
-      <button
-        className="MainButtons"
-        onClick={() => {
-          storage.clear,
-          storage.setItem("isLogedin", "false"), 
-          logout();
-        }}
-      >
-        Logout
-      </button>
-    )
+    <button
+      className="MainButtons"
+      onClick={() => {
+        localStorage.clear, localStorage.setItem("isLogedin", "false"), logout();
+      }}
+    >
+      Logout
+    </button>
   );
 };
 

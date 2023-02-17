@@ -1,20 +1,11 @@
 /* Css created */
-.customNavBar {
+/* .customNavBar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: rgb(66, 66, 248);
   height: 5rem;
   width: 100%;
-  /* position: fixed;  */
-  z-index: 1;
-  /* top: 0;
-  left: 0; */
-}
-.titleContainer{
-  display: flex;
-  width: 13rem;
-  justify-content: center;
 }
 
 .navLinks {
@@ -24,10 +15,14 @@
   background-color: rgb(66, 66, 248);
   z-index: 1;
 }
+
+.navLinks {
+  display: flex;
+}
+
 .customNavBar .Title {
   display: flex;
   align-items: center;
-  margin-left: 46%;
 }
 .customNavBar .navButtons {
   position: absolute;
@@ -47,4 +42,37 @@
 
 @media screen and (max-width: 1200px){
 
+} */
+
+
+
+
+
+.customNavBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(66, 66, 248);
+  height: 5rem;
+  width: 100%;
+}
+
+.titleContainer {
+  margin-left: 5%;
+}
+
+.navLinks {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5%;
+}
+
+.MainButtons {
+  text-align: center;
+  background-color: black;
+  color: white;
+  padding: 3%;
+  border-radius: 15%;
 }
