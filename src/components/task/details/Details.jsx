@@ -3,7 +3,7 @@ import { deleteImages } from "../../../services/deleteImages";
 import deleteTicket from "../../../services/deleteTicket";
 import editTicket from "../../../services/editTicket";
 
-const Details = ({ closeModal, ticket, isPending }) => {
+const Details = ({ closeModal, ticket, refresh }) => {
   const storage = window.localStorage;
   const [edit, setEdit] = useState(false);
   const cloudName = import.meta.env.VITE_REACT_APP_CLOUDNAME;
@@ -25,10 +25,10 @@ const Details = ({ closeModal, ticket, isPending }) => {
     let result = await editTicket(details, ticket._id);
     if (result == "success") {
       closeModal(false);
-      isPending(true);
+      refresh(true);
     }
     {
-      closeModal, isPending;
+      closeModal, refresh;
     }
   };
   const handleDelete = async (event) => {

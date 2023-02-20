@@ -8,14 +8,13 @@ const LoginButton = () => {
   const storage = window.localStorage
 
   return (
-    storage.getItem("isLogedin") == "false"&& (
+    
       <button
         className="MainButtons"
         onClick={() => (loginWithRedirect(), navigate("/home"), storage.setItem("isLogedin", true))}
       >
         Login
       </button>
-    )
   );
 };
 

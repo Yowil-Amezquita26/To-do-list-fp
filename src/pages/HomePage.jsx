@@ -4,7 +4,7 @@ import { registerUser } from "../services/registerUser";
 
 const HomePage = ({ logedin }) => {
   registerUser("https://to-do-list-be.onrender.com/api/user/register");
-
+  
   return (
     <>
       <Layout site={"HomePage"}>

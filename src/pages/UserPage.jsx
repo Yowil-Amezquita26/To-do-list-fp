@@ -11,6 +11,7 @@ const UserPage = ({ setUpdate }) => {
   const {logUser, isPending, error} = getUser(
     `https://to-do-list-be.onrender.com/api/user/${user?.email}`
   );
+  console.log(logUser);
     console.log(isPending);
   return (
     <>
