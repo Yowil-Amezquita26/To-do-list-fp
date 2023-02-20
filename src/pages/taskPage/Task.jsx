@@ -12,7 +12,7 @@ import Layout from "../../components/Layout";
 import Gallery from "../../components/imageGallery/Gallery";
 import { useForm } from "../../form/useForm";
 import DropZone from "../../dnd/DropZone";
-import { authenticate } from "../../services/authenticate";
+import authenticate  from "../../services/authenticate";
 import Loading from "../../components/loading/Loading";
 import { getUser } from "../../hooks/getUser";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -30,8 +30,6 @@ export default function Task() {
   // const [error, setError] = useState(null);
   const {logUser, isPending, error,tasks, setRefresh} = getUser(`https://to-do-list-be.onrender.com/api/user/${user?.email}`)
   const storage = window.localStorage;
-  console.log(logUser);
-  console.log(tasks);
   // storage.setItem("Logedin", false);
   const {
     form,

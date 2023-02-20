@@ -1,13 +1,16 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
 
-export const authenticate = () => {
+const authenticate = async function(){
   const storage = window.localStorage;
-  const { isAuthenticated } = useAuth0();
-  const navigate = useNavigate();
+  const { isAuthenticated,loginWithRedirect } = useAuth0();
+
   if (isAuthenticated) {
-    storage.setItem("isLogedin", true); 
+    window.location.href
   } else {
-    navigate("/home");
+    storage.setItem("isLogedin", true)
+    loginWithRedirect()
   }
 };
+
+export default authenticate

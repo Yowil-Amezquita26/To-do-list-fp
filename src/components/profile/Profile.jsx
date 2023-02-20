@@ -6,7 +6,6 @@ import "./profile.css";
 
 const Profile = ( LogUser ) => {
   const { user, isAuthenticated } = useAuth0();
-  console.log(LogUser);
   if (LogUser === null) {
     return <Loading />;
   }
