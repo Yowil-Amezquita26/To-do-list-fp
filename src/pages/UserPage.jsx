@@ -6,11 +6,11 @@ import authenticate  from "../services/authenticate";
 
 const UserPage = ({ setUpdate }) => {
   // setUpdate(true);
+  authenticate()
   const {user, isAuthenticated} = useAuth0();
   const {logUser, isPending, error} = getUser(
     `https://to-do-list-be.onrender.com/api/user/${user?.email}`
   );
-  authenticate()
   return (
     <>
       {!isPending ? (
