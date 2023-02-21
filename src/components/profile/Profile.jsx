@@ -11,7 +11,6 @@ const Profile = ( LogUser ) => {
   }
   return ( 
     <>
-      {isAuthenticated && (
         <>
           <section className="profile">
             <div className="picture">
@@ -43,7 +42,6 @@ const Profile = ( LogUser ) => {
             </div>
           </section> */}
         </>
-      )}
       {/* sectetur adipisicing elit. Veniam ex fugiat totam, repellat, dolorem iure exercitationem molestias doloribus illum expedita laudantium quis dignissimos consequatur dolore earum itaque ab quaerat eaque?</h5> */}
     </>
   );
