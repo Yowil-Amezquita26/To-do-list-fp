@@ -5,7 +5,6 @@ const LogoutButton = () => {
   const { logout} = useAuth0();
   const storage = window.localStorage;
   return (
-    storage.getItem("isLogedin")=="true" && (
       <button
         className="MainButtons"
         onClick={() => {
@@ -17,7 +16,6 @@ const LogoutButton = () => {
         Logout
       </button>
     )
-  );
 };
 
 export default LogoutButton;
