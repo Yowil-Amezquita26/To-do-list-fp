@@ -5,7 +5,7 @@ import TicketData from "./TicketData";
 import "./profile.css";
 
 const Profile = ( LogUser ) => {
-  const { user, isAuthenticated } = useAuth0();
+  // const { user, isAuthenticated } = useAuth0();
   if (LogUser === null) {
     return <Loading />;
   }
@@ -15,7 +15,7 @@ const Profile = ( LogUser ) => {
           <section className="profile">
             <div className="picture">
               <h2>Profile</h2>
-              <img src={`${user?.picture}`} alt="" />
+              {/* <img src={`${user?.picture}`} alt="" /> */}
             </div>
             {/* <div className="userInfo">
               <h3>Name:{LogUser.userDB.name}</h3>
