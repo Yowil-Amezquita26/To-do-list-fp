@@ -11,11 +11,13 @@ const UserPage = ({ setUpdate }) => {
   const {logUser, isPending, error} = getUser(
     `https://to-do-list-be.onrender.com/api/user/${user?.email}`
   );
+  console.log(logUser?.userDB);
+
   return (
     <>
       {!isPending ? (
         <Layout site={"Profile"}>
-          <Profile LogUser={logUser} />
+          <Profile LogUser={logUser.userDB} />
         </Layout>
       ) : (
         <h4>Cargando</h4>
