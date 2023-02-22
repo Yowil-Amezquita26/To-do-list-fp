@@ -5,7 +5,6 @@ import authenticate from "../services/authenticate";
 
 const HomePage = ({ logedin }) => {
   registerUser("https://to-do-list-be.onrender.com/api/user/register");
-  authenticate()
   return (
     <>
       <Layout site={"HomePage"}>

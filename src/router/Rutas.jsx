@@ -8,9 +8,9 @@ export default function Rutas() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<HomePage />}></Route>
+        <Route exact path="/" element={<HomePage />}></Route>
         <Route
-          path="/user-page/:type"
+          exact path="/user-page"
           element={<UserPage />}
         ></Route>
         <Route path="/task" element={<Task />}></Route>

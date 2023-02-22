@@ -14,7 +14,7 @@ function toggleBurguerMenu(e) {
 }
 
 const CustomNav = () => {
-  const {isAuthenticated} = useAuth0();
+  const { isAuthenticated } = useAuth0();
   const storage = window.localStorage;
   return (
     <>
@@ -45,13 +45,7 @@ const CustomNav = () => {
 
                   {isAuthenticated && (
                     <>
-                      <Link
-                        to={{
-                          pathname: "/user-page/data",
-                          state: { stateParam: true },
-                        }}
-                        className={"MainButtons"}
-                      >
+                      <Link to={"/user-page"} className={"MainButtons"}>
                         <button>Profile</button>
                       </Link>
                       <Link to={"/task"} className={"MainButtons"}>
@@ -59,11 +53,7 @@ const CustomNav = () => {
                       </Link>
                     </>
                   )}
-                  {!isAuthenticated ? (
-                    <LoginButton />
-                  ) : (
-                    <LogoutButton />
-                  )}
+                  {!isAuthenticated ? <LoginButton /> : <LogoutButton />}
                 </ul>
               </div>
             </div>
