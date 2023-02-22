@@ -1,10 +1,11 @@
 import Layout from "../components/Layout";
 import reactLogo from "../assets/react.svg";
 import { registerUser } from "../services/registerUser";
+import authenticate from "../services/authenticate";
 
 const HomePage = ({ logedin }) => {
   registerUser("https://to-do-list-be.onrender.com/api/user/register");
-  
+  authenticate()
   return (
     <>
       <Layout site={"HomePage"}>
