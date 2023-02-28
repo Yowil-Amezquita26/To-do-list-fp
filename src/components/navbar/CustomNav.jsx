@@ -20,7 +20,7 @@ const CustomNav = () => {
     <>
       <section className="customNavBar">
         <div className="titleContainer">
-          <h2 className="Title">To-do-list</h2>
+          <h2>To-do-list</h2>
         </div>
         <>
           <div className="rigthContainer" id="rigthContainer">
@@ -38,7 +38,7 @@ const CustomNav = () => {
             </label>
             <div id="links" className="links">
               <div className="navLinks">
-                <ul className="navButtonContainer">
+                
                   <Link to={"/"} className={"MainButtons"}>
                     <button>Home</button>
                   </Link>
@@ -54,7 +54,6 @@ const CustomNav = () => {
                     </>
                   )}
                   {!isAuthenticated ? <LoginButton /> : <LogoutButton />}
-                </ul>
               </div>
             </div>
           </div>

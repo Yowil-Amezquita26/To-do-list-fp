@@ -2,9 +2,13 @@
   margin-left: 1rem;
   margin-right: 2rem;
 }
-.userInfo {
-}
 .taskContainer {
+  display: flex;
+  flex-direction: row;
+  margin: 2rem;
+  align-items: center;
+}
+.profile {
   display: flex;
   flex-direction: row;
   margin: 2rem;

@@ -30,12 +30,6 @@
   justify-content: center;
 }
 
-.profile {
-  display: flex;
-  flex-direction: row;
-  margin: 2rem;
-  align-items: center;
-}
 .logo {
   width: 6em;
   height: 6em;

@@ -52,6 +52,8 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  display: flex;
+  margin: 0.2rem;
 }
 button:hover {
   border-color: #646cff;
@@ -60,12 +62,6 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
-/* Css created */
-.UlItems {
-  display: flex;
-}
-
 /*            */
 
 @media (prefers-color-scheme: light) {
