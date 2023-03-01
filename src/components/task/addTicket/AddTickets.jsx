@@ -3,8 +3,7 @@ import putTicket from "../../../services/putTicket";
 
 const AddTickets = ({
   closeModal,
-  isPending,
-  setUpdate,
+  refresh,
   form,
   handleOpenWidget,
   handleInputChange,
@@ -13,13 +12,12 @@ const AddTickets = ({
     let result = await putTicket(
       form,
       { closeModal },
-      { isPending },
+      { refresh },
       { setUpdate }
     );
     if (result == "success") {
       closeModal(false);
-      isPending(true);
-      setUpdate(true);
+      refresh(true);
     }
   };
 

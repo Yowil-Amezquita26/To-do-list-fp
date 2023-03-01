@@ -11,7 +11,7 @@ const authenticate = async function(){
   console.log(window.location.path);
 
   if (isAuthenticated) {
-    // window.location.origin
+    window.location.origin
   }
   if(isAuthenticated == false && isLoading == false) {
     // storage.setItem("isLogedin", true)

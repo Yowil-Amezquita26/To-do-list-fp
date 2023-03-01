@@ -28,7 +28,7 @@
   margin-top: 10px;
 }
 
-.titleCloseBtn {
+/* .titleCloseBtn {
   display: flex;
   justify-content: flex-end;
 }
@@ -38,7 +38,7 @@
   border: none;
   font-size: 25px;
   cursor: pointer;
-}
+} */
 
 .modalContainer .body {
   flex: 50%;

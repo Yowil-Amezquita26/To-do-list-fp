@@ -23,14 +23,8 @@ export default function Task() {
   const [openGallery, setOpenGallery] = useState(false);
   const [newData, setNewData] = useState(false);
   const [task, setTask] = useState([]);
-  const {url, setUrl} = useState()
   const { user, isAuthenticated } = useAuth0();
-  // const [user, setUser] = useState(null);
-  // const [isPending, setisPending] = useState(true);
-  // const [error, setError] = useState(null);
   const {logUser, isPending, error,tasks, setRefresh} = getUser(`https://to-do-list-be.onrender.com/api/user/${user?.email}`)
-  const storage = window.localStorage;
-  // storage.setItem("Logedin", false);
   const {
     form,
     setForm,
@@ -39,42 +33,6 @@ export default function Task() {
     updateFormDetails,
   } = useForm();
   authenticate();
-  // useEffect(() => {
-  //   const User = async (url) => {
-  //     try {
-  //       let res = await fetch(url);
-  //       if (!res.ok) {
-  //         throw {
-  //           err: true,
-  //           status: res.status,
-  //           statusText: !res.statusText ? "Ocurrio un error" : res.statusText,
-  //         };
-  //       }
-  //       let json = await res.json();
-  //       setUser(json);
-  //       setisPending(false);
-  //       setError({ err: false });
-  //       setUpdate(false);
-  //       setNewData(false);
-  //     } catch (err) {
-  //       setisPending(true);
-  //       setError(err);
-  //     }
-  //   };
-  //   User(
-  //     `https://to-do-list-be.onrender.com/api/user/${storage.getItem(
-  //       "UserEmail"
-  //     )}`
-  //   );
-  //   if (logUser != null) {
-  //     logUser.userDB.tickets.map((ticket) => {
-  //       if (ticket._id == storage.getItem("currentGallery")) {
-  //         setTask(ticket);
-  //       }
-  //     });
-  //   }
-  // }, [openModal, openDetails, openGallery, newData]);
-  // console.log(user);
   if (isPending) {
     return (
       <>
@@ -106,8 +64,7 @@ export default function Task() {
         {openModal && (
           <AddTickets
             closeModal={setOpenModal}
-            isPending={setisPending}
-            setUpdate={setUpdate}
+            refresh={setRefresh}
             form={form}
             setForm={setForm}
             handleOpenWidget={handleOpenWidget}
