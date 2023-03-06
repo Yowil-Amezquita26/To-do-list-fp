@@ -10,8 +10,8 @@ export const useForm = () => {
     status: "Not Done",
     images: [
       {
-        public_id: "cld-sample-5",
-        url: "https://res.cloudinary.com/dyfyklgpd/image/upload/v1670937567/cld-sample-5.jpg",
+        public_id: "",
+        url: "",
       },
     ],
   });

@@ -9,12 +9,7 @@ const AddTickets = ({
   handleInputChange,
 }) => {
   const handleSubmit = async () => {
-    let result = await putTicket(
-      form,
-      { closeModal },
-      { refresh },
-      { setUpdate }
-    );
+    let result = await putTicket(form);
     if (result == "success") {
       closeModal(false);
       refresh(true);

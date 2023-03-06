@@ -13,7 +13,7 @@ function Gallery({ ticket, closeModal, newData }) {
             <button onClick={() => closeModal(false)}> X </button>
           </div>
           <Carousel
-            slides={ticket.images}
+            slides={ticket?.images}
             closeModal={closeModal}
             newData={newData}
           />

@@ -28,18 +28,6 @@
   margin-top: 10px;
 }
 
-/* .titleCloseBtn {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.titleCloseBtn button {
-  background-color: transparent;
-  border: none;
-  font-size: 25px;
-  cursor: pointer;
-} */
-
 .modalContainer .body {
   flex: 50%;
   display: flex;
