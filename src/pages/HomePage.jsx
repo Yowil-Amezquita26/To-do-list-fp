@@ -1,9 +1,8 @@
-import Layout from "../components/Layout";
 import reactLogo from "../assets/react.svg";
 import { registerUser } from "../services/registerUser";
-import authenticate from "../services/authenticate";
+import { Layout } from "../components";
 
-const HomePage = ({ logedin }) => {
+export const HomePage = () => {
   registerUser("https://to-do-list-be.onrender.com/api/user/register");
   return (
     <>
@@ -39,4 +38,3 @@ const HomePage = ({ logedin }) => {
   );
 };
 
-export default HomePage;

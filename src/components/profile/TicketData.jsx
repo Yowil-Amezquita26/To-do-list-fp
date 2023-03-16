@@ -1,6 +1,6 @@
 import React from "react";
 
-function TicketData(tickets) {
+export const TicketData= (tickets) => {
   const notDone = tickets.tickets.filter(
     (ticket) => ticket.status == "Not Done"
   );
@@ -17,4 +17,4 @@ function TicketData(tickets) {
   );
 }
 
-export default TicketData;
+

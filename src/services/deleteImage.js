@@ -1,6 +1,8 @@
-const deleteImage = async function (currentImg, newData) {
+export const deleteImage = async function (currentImg) {
   const token = import.meta.env.VITE_REACT_APP_SECRET_TOKEN;
+  console.log(currentImg);
   let result = await fetch(
+
     `https://to-do-list-be.onrender.com/api/user/delete-image/${currentImg.public_id}/${currentImg._id}`,
     {
       method: "DELETE",
@@ -12,9 +14,8 @@ const deleteImage = async function (currentImg, newData) {
     }
   )
     .then((response) => response.json())
-    .then((data) => {
+    .then(() => {
       return "success";
-      // window.location.reload();
     })
     .catch((error) => {
       return error;
@@ -22,4 +23,3 @@ const deleteImage = async function (currentImg, newData) {
   return result;
 };
 
-export default deleteImage;

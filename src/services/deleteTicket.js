@@ -1,4 +1,4 @@
-const deleteTicket = async function (userId, ticketId) {
+export const deleteTicket = async function (userId, ticketId) {
   const storage = window.localStorage;
   storage.setItem("deleted", "false");
   const token = import.meta.env.VITE_REACT_APP_SECRET_TOKEN;
@@ -17,7 +17,6 @@ const deleteTicket = async function (userId, ticketId) {
     .then((data) => {
       storage.setItem("deleted", "true");
       return "success";
-      // window.location.reload();
     })
     .catch((err) => {
       return err;
@@ -25,4 +24,3 @@ const deleteTicket = async function (userId, ticketId) {
   return result;
 };
 
-export default deleteTicket;

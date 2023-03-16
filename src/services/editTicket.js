@@ -1,4 +1,4 @@
-const editTicket = async function (data, ticketId) {
+export const editTicket = async function (data, ticketId) {
   const storage = window.localStorage;
   const token = import.meta.env.VITE_REACT_APP_SECRET_TOKEN;
   storage.setItem("edited", "false");
@@ -28,4 +28,4 @@ const editTicket = async function (data, ticketId) {
   return result;
 };
 
-export default editTicket;
+

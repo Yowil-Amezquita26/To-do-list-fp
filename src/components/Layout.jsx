@@ -1,9 +1,8 @@
 import React from "react";
 import CustomFooter from "./footer/CustomFooter";
-import Loading from "./loading/Loading";
 import CustomNav from "./navbar/CustomNav";
 
-function Layout({ site, children }) {
+export const Layout=({ site, children }) =>{
   const storage = window.localStorage
   return (
     <>
@@ -16,4 +15,4 @@ function Layout({ site, children }) {
   );
 }
 
-export default Layout;
+

@@ -1,5 +1,6 @@
 import { useState } from "react";
-import editTicket from "../services/editTicket";
+import { editTicket } from "../services";
+
 
 export const useForm = () => {
   const cloudName = import.meta.env.VITE_REACT_APP_CLOUDNAME;

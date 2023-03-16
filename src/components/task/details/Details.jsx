@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { deleteImages } from "../../../services/deleteImages";
-import deleteTicket from "../../../services/deleteTicket";
-import editTicket from "../../../services/editTicket";
+import { editTicket,deleteTicket, deleteImages } from "../../../services";
 
-const Details = ({ closeModal, ticket, refresh }) => {
+
+export const Details = ({ closeModal, ticket, refresh }) => {
   const storage = window.localStorage;
   const [edit, setEdit] = useState(false);
   const cloudName = import.meta.env.VITE_REACT_APP_CLOUDNAME;
@@ -37,6 +36,7 @@ const Details = ({ closeModal, ticket, refresh }) => {
     let result = await deleteTicket(storage.getItem("UserId"), ticket._id);
     if (result == "success") {
       closeModal(false);
+      refresh(true)
     }
   };
 
@@ -58,9 +58,11 @@ const Details = ({ closeModal, ticket, refresh }) => {
     myWidget.open();
   };
 
+  const handleModalContainerClick = (e) => e.stopPropagation();
+
   return (
-    <div className="modalBackground">
-      <section className="modalContainer">
+    <div className="modal" onClick={() => closeModal(false)}>
+      <section className="modalContainer" onClick={handleModalContainerClick}>
         <div className="closeButton">
           <button onClick={() => closeModal(false)}> X </button>
         </div>
@@ -142,4 +144,4 @@ const Details = ({ closeModal, ticket, refresh }) => {
   );
 };
 
-export default Details;
+

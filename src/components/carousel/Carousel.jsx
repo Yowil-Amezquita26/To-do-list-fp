@@ -2,12 +2,13 @@ import React, { useState, useEffect, useRef } from "react";
 import CarouselItems from "./CarouselItems";
 import "./carousel.css";
 import CarouselControler from "./CarouselControler";
-import deleteImage from "../../services/deleteImage";
+import { deleteImage } from "../../services";
 
 function Carousel({ slides, closeModal, newData }) {
   const [gallery, setGallery] = useState(slides);
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideInterval = useRef();
+
   const prev = () => {
     startSlideTimer();
     const index = currentSlide > 0 ? currentSlide - 1 : gallery.length - 1;

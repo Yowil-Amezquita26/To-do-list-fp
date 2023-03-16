@@ -1,4 +1,4 @@
-import editTicket from "../services/editTicket";
+import { editTicket } from "../services";
 
 const dropCard = (card, zone) => {
   if (zone == "not-done") {

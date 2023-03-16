@@ -1,30 +1,36 @@
 import React, { useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+
+import {
+  AddTickets,
+  Details,
+  Tickets,
+  Gallery,
+  Layout,
+  Loading,
+} from "../../components";
+
+import { useForm } from "../../form/useForm";
+import DropZone from "../../dnd/DropZone";
+
+import { getUser } from "../../hooks/getUser";
+import { authenticate } from "../../services";
+import "../../styles/modal.css";
 import "./TaskStyles.css";
-import "../../components/loading/loading.css";
 import "../../styles/form.css";
 import "../../components/task/details/details.css";
 import "../../components/task/addTicket/AddTicket.css";
-import AddTickets from "../../components/task/addTicket/AddTickets";
-import Details from "../../components/task/details/Details";
-import Tickets from "../../components/task/Tickets";
-import { useEffect } from "react";
-import Layout from "../../components/Layout";
-import Gallery from "../../components/imageGallery/Gallery";
-import { useForm } from "../../form/useForm";
-import DropZone from "../../dnd/DropZone";
-import authenticate  from "../../services/authenticate";
-import Loading from "../../components/loading/Loading";
-import { getUser } from "../../hooks/getUser";
-import { useAuth0 } from "@auth0/auth0-react";
 
-export default function Task() {
+export const Task = () => {
   const [openModal, setOpenModal] = useState(false);
   const [openDetails, setOpenDetails] = useState(false);
   const [openGallery, setOpenGallery] = useState(false);
   const [newData, setNewData] = useState(false);
   const [task, setTask] = useState([]);
-  const { user, isAuthenticated } = useAuth0();
-  const {logUser, isPending, error,tasks, setRefresh} = getUser(`https://to-do-list-be.onrender.com/api/user/${user?.email}`)
+  const { user } = useAuth0();
+  const { logUser, isPending, error, tasks, setRefresh } = getUser(
+    `https://to-do-list-be.onrender.com/api/user/${user?.email}`
+  );
   const {
     form,
     setForm,
@@ -36,7 +42,7 @@ export default function Task() {
   if (isPending) {
     return (
       <>
-        <Loading/>
+        <Loading />
       </>
     );
   }
@@ -145,4 +151,4 @@ export default function Task() {
       </Layout>
     </>
   );
-}
+};

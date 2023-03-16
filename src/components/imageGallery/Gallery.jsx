@@ -1,14 +1,17 @@
 import React from "react";
 import "./gallery.css";
 import Carousel from "../carousel/Carousel";
-function Gallery({ ticket, closeModal, newData }) {
+
+
+export const Gallery = ({ ticket, closeModal, newData }) =>{
   const storage = window.localStorage;
   storage.setItem("currentGallery", ticket._id);
 
+  const handleModalContainerClick = (e) => e.stopPropagation();
   return (
     <>
-      <section className="modalBackground">
-        <div className="modalContainer">
+      <div className="modal" onClick={() => closeModal(false)}>
+        <div className="modalContainer" onClick={handleModalContainerClick}>
           <div className="closeButton">
             <button onClick={() => closeModal(false)}> X </button>
           </div>
@@ -18,9 +21,9 @@ function Gallery({ ticket, closeModal, newData }) {
             newData={newData}
           />
         </div>
-      </section>
+      </div>
     </>
   );
 }
 
-export default Gallery;
+

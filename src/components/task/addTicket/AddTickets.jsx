@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import putTicket from "../../../services/putTicket";
+import { putTicket } from "../../../services";
 
-const AddTickets = ({
+
+export const AddTickets = ({
   closeModal,
   refresh,
   form,
@@ -15,10 +16,11 @@ const AddTickets = ({
       refresh(true);
     }
   };
+  const handleModalContainerClick = (e) => e.stopPropagation();
 
   return (
-    <div className="modalBackground">
-      <div className="modalContainer">
+    <div className="modal" onClick={() => closeModal(false)}>
+      <div className="modalContainer" onClick={handleModalContainerClick}>
         <div className="closeButton">
           <button onClick={() => closeModal(false)}> X </button>
         </div>
@@ -55,4 +57,4 @@ const AddTickets = ({
   );
 };
 
-export default AddTickets;
+

@@ -1,4 +1,4 @@
-const putTicket = async function (data) {
+export const putTicket = async function (data) {
   const storage = window.localStorage;
   const token = import.meta.env.VITE_REACT_APP_SECRET_TOKEN;
   let result = await fetch(
@@ -17,9 +17,7 @@ const putTicket = async function (data) {
   )
     .then((response) => response.json())
     .then((data) => {
-      // storage.setItem("added", true);
       return "success";
-      // Handle data
     })
     .catch((err) => {
       return err.messaje;
@@ -27,4 +25,4 @@ const putTicket = async function (data) {
   return result;
 };
 
-export default putTicket;
+

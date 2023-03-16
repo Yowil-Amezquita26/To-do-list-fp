@@ -1,6 +1,7 @@
 import React from "react";
 import "./loading.css";
-function Loading() {
+
+export const Loading= () => {
   return (
     <>
       <div className="loadingContainer">

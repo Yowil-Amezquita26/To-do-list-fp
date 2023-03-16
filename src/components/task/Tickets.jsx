@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useDrag } from "react-dnd";
 
-function Tickets({ tickets, OpenDetails, setTask, OpenGallery }) {
+export const Tickets = ({ tickets, OpenDetails, setTask, OpenGallery })=> {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "card",
     item: { from: tickets.status, tickets },
@@ -55,4 +55,4 @@ function Tickets({ tickets, OpenDetails, setTask, OpenGallery }) {
   );
 }
 
-export default Tickets;
+

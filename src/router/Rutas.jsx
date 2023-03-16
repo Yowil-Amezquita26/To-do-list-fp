@@ -1,8 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import HomePage from "../pages/HomePage";
-import Task from "../pages/taskPage/Task";
-import UserPage from "../pages/UserPage";
+import { HomePage, UserPage, Task } from "../pages";
 
 export default function Rutas() {
   return (
