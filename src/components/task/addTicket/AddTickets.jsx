@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { putTicket } from "../../../services";
 
-
 export const AddTickets = ({
   closeModal,
   refresh,
@@ -56,5 +55,3 @@ export const AddTickets = ({
     </div>
   );
 };
-
-

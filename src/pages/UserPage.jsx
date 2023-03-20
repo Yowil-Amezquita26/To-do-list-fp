@@ -3,7 +3,6 @@ import { Layout, Loading, Profile } from "../components";
 import { getUser } from "../hooks/getUser";
 import { authenticate } from "../services";
 
-
 export const UserPage = () => {
   const { user } = useAuth0();
   authenticate();
@@ -23,4 +22,3 @@ export const UserPage = () => {
     </>
   );
 };
-

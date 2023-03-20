@@ -24,5 +24,3 @@ export const putTicket = async function (data) {
     });
   return result;
 };
-
-

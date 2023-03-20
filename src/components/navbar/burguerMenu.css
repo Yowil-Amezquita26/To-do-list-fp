@@ -13,7 +13,7 @@
   }
 
   .rigthContainer.open {
-    margin-top:10.9rem
+    margin-top: 10.9rem;
   }
 
   .burguerButton {
@@ -50,7 +50,7 @@
   .bar span.bottom {
     bottom: 0;
   }
-  
+
   .burguerButton:checked ~ span.top {
     transform: rotate(45deg);
     transform-origin: top left;

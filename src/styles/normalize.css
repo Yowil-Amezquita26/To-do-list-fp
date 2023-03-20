@@ -174,7 +174,8 @@ textarea {
  */
 
 button,
-input { /* 1 */
+input {
+  /* 1 */
   overflow: visible;
 }
 
@@ -184,14 +185,14 @@ input { /* 1 */
  */
 
 button,
-select { /* 1 */
+select {
+  /* 1 */
   text-transform: none;
 }
 
 /**
  * Correct the inability to style clickable types in iOS and Safari.
  */
-
 
 /**
  * Remove the inner border and padding in Firefox.
@@ -281,19 +282,14 @@ textarea {
  * 2. Correct the outline style in Safari.
  */
 
-
-
 /**
  * Remove the inner padding in Chrome and Safari on macOS.
  */
-
-
 
 /**
  * 1. Correct the inability to style clickable types in iOS and Safari.
  * 2. Change font properties to `inherit` in Safari.
  */
-
 
 /* Interactive
    ========================================================================== */

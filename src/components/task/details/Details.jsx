@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { editTicket,deleteTicket, deleteImages } from "../../../services";
-
+import { editTicket, deleteTicket, deleteImages } from "../../../services";
 
 export const Details = ({ closeModal, ticket, refresh }) => {
   const storage = window.localStorage;
@@ -36,7 +35,7 @@ export const Details = ({ closeModal, ticket, refresh }) => {
     let result = await deleteTicket(storage.getItem("UserId"), ticket._id);
     if (result == "success") {
       closeModal(false);
-      refresh(true)
+      refresh(true);
     }
   };
 
@@ -143,5 +142,3 @@ export const Details = ({ closeModal, ticket, refresh }) => {
     </div>
   );
 };
-
-

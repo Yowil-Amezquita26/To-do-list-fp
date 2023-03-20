@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { editTicket } from "../services";
 
-
 export const useForm = () => {
   const cloudName = import.meta.env.VITE_REACT_APP_CLOUDNAME;
   const uploadPreset = import.meta.env.VITE_REACT_APP_UPLOADPRESET;
@@ -19,8 +18,7 @@ export const useForm = () => {
 
   // Handle inputs
 
-  const updateFormDetails = (ticket) => {
-  };
+  const updateFormDetails = (ticket) => {};
   const handleInputChange = (event) => {
     setForm({
       ...form,

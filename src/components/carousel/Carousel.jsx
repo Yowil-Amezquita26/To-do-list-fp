@@ -42,19 +42,20 @@ function Carousel({ slides, closeModal, newData }) {
     return () => stopSlideTimer();
   }, []);
 
-  const deleteSlide = async(images, currentImage, { setCurrentSlide }, newData) => {
-    let result = await deleteImage(
-      images[currentImage],
-      newData,
-    );
-    if(result=="success"){
-
+  const deleteSlide = async (
+    images,
+    currentImage,
+    { setCurrentSlide },
+    newData
+  ) => {
+    let result = await deleteImage(images[currentImage], newData);
+    if (result == "success") {
       newData(true);
       const index = images.indexOf(images[currentImage]);
       if (index > -1) {
         // only splice array when item is found
         images.splice(index, 1); // 2nd parameter means remove one item only
-        setCurrentSlide(images.length - 1)
+        setCurrentSlide(images.length - 1);
       }
     }
   };

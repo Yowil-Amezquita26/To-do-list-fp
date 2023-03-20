@@ -1,6 +1,6 @@
 import React from "react";
 
-export const TicketData= (tickets) => {
+export const TicketData = (tickets) => {
   const notDone = tickets.tickets.filter(
     (ticket) => ticket.status == "Not Done"
   );
@@ -15,6 +15,4 @@ export const TicketData= (tickets) => {
       </ul>
     </>
   );
-}
-
-
+};

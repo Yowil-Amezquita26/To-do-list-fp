@@ -2,8 +2,7 @@ import React from "react";
 import "./gallery.css";
 import Carousel from "../carousel/Carousel";
 
-
-export const Gallery = ({ ticket, closeModal, newData }) =>{
+export const Gallery = ({ ticket, closeModal, newData }) => {
   const storage = window.localStorage;
   storage.setItem("currentGallery", ticket._id);
 
@@ -24,6 +23,4 @@ export const Gallery = ({ ticket, closeModal, newData }) =>{
       </div>
     </>
   );
-}
-
-
+};

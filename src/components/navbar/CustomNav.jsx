@@ -38,22 +38,21 @@ const CustomNav = () => {
             </label>
             <div id="links" className="links">
               <div className="navLinks">
-                
-                  <Link to={"/"} className={"MainButtons"}>
-                    <button>Home</button>
-                  </Link>
+                <Link to={"/"} className={"MainButtons"}>
+                  <button>Home</button>
+                </Link>
 
-                  {isAuthenticated && (
-                    <>
-                      <Link to={"/user-page"} className={"MainButtons"}>
-                        <button>Profile</button>
-                      </Link>
-                      <Link to={"/task"} className={"MainButtons"}>
-                        <button>Task</button>
-                      </Link>
-                    </>
-                  )}
-                  {!isAuthenticated ? <LoginButton /> : <LogoutButton />}
+                {isAuthenticated && (
+                  <>
+                    <Link to={"/user-page"} className={"MainButtons"}>
+                      <button>Profile</button>
+                    </Link>
+                    <Link to={"/task"} className={"MainButtons"}>
+                      <button>Task</button>
+                    </Link>
+                  </>
+                )}
+                {!isAuthenticated ? <LoginButton /> : <LogoutButton />}
               </div>
             </div>
           </div>

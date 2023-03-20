@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useDrag } from "react-dnd";
 
-export const Tickets = ({ tickets, OpenDetails, setTask, OpenGallery })=> {
+export const Tickets = ({ tickets, OpenDetails, setTask, OpenGallery }) => {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "card",
     item: { from: tickets.status, tickets },
@@ -53,6 +53,4 @@ export const Tickets = ({ tickets, OpenDetails, setTask, OpenGallery })=> {
       </div>
     </>
   );
-}
-
-
+};

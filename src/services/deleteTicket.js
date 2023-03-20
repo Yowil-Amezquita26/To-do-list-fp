@@ -23,4 +23,3 @@ export const deleteTicket = async function (userId, ticketId) {
     });
   return result;
 };
-

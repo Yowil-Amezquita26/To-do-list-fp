@@ -7,10 +7,7 @@ export default function Rutas() {
     <>
       <Routes>
         <Route exact path="/" element={<HomePage />}></Route>
-        <Route
-          exact path="/user-page"
-          element={<UserPage />}
-        ></Route>
+        <Route exact path="/user-page" element={<UserPage />}></Route>
         <Route path="/task" element={<Task />}></Route>
       </Routes>
     </>

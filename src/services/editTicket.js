@@ -27,5 +27,3 @@ export const editTicket = async function (data, ticketId) {
 
   return result;
 };
-
-

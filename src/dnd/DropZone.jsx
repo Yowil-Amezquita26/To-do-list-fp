@@ -2,10 +2,10 @@ import React, { useRef } from "react";
 import { useDrop } from "react-dnd";
 import dropCard from "./dropCard";
 
-function DropZone({ children, newData ,refresh}) {
+function DropZone({ children, newData, refresh }) {
   let currentContainer = useRef();
   let zone = "";
-  const [{isOverCurrent}, drop] = useDrop(() => ({
+  const [{ isOverCurrent }, drop] = useDrop(() => ({
     accept: "card",
     collect: (monitor) => ({
       isOverCurrent: monitor.didDrop(),
