@@ -5,16 +5,13 @@ import Loading from "./loading/Loading";
 
 export const Layout = ({ site, children }) => {
   const storage = window.localStorage;
+  console.log(site);
   return (
     <>
       <nav>
         <CustomNav />
       </nav>
-      {!storage.getItem("Logedin") ? (
-        <Loading />
-      ) : (
         <main className="mainContent">{children}</main>
-      )}
       {site != "Task" ? <CustomFooter /> : ""}
     </>
   );
