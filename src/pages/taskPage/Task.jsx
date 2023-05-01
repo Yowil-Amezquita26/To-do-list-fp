@@ -8,6 +8,7 @@ import {
   Gallery,
   Layout,
   Loading,
+  Card,
 } from "../../components";
 
 import { useForm } from "../../form/useForm";
@@ -94,7 +95,7 @@ export const Task = () => {
         )}
         <section className="contentTask">
           <DropZone refresh={setRefresh}>
-            <div key={"not-done"} className="Tickets not-done">
+            <div key={"not-done"} className="Tickets ">
               <h2 className="statusHearder">
                 <b>To-do</b>
               </h2>
@@ -104,6 +105,7 @@ export const Task = () => {
                   <Tickets
                     key={`notDone${index}`}
                     tickets={tickets}
+                    status={"not-done"}
                     OpenDetails={setOpenDetails}
                     setTask={setTask}
                     OpenGallery={setOpenGallery}
@@ -112,7 +114,7 @@ export const Task = () => {
             </div>
           </DropZone>
           <DropZone refresh={setRefresh}>
-            <div key={"doing"} name="doing" className="Tickets doing">
+            <div key={"doing"} name="doing" className="Tickets ">
               <h2 className="statusHearder">
                 <b>Doing</b>
               </h2>
@@ -122,6 +124,7 @@ export const Task = () => {
                   <Tickets
                     key={`Doing${index}`}
                     tickets={tickets}
+                    status={"doing"}
                     OpenDetails={setOpenDetails}
                     setTask={setTask}
                     OpenGallery={setOpenGallery}
@@ -130,20 +133,23 @@ export const Task = () => {
             </div>
           </DropZone>
           <DropZone refresh={setRefresh}>
-            <div key={"done"} className="Tickets done">
+            <div key={"done"} className="Tickets ">
               <h2 className="statusHearder">
                 <b>Done</b>
               </h2>
               {tasks
                 .filter((ticket) => ticket.status == "Done")
                 .map((tickets, index) => (
+                  <>
                   <Tickets
                     key={`Done${index}`}
                     tickets={tickets}
+                    status={"done"}
                     OpenDetails={setOpenDetails}
                     OpenGallery={setOpenGallery}
                     setTask={setTask}
                   />
+                  </>
                 ))}
             </div>
           </DropZone>

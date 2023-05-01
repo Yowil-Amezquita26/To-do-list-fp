@@ -15,3 +15,4 @@ export { TicketData } from "./profile/TicketData.jsx";
 
 // component folder
 export { Layout } from "./Layout.jsx";
+export { Card } from "./Card.jsx"
